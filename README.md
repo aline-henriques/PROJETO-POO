@@ -1,30 +1,30 @@
-# | Gomes Cachaçaria e Artesanato - Backend Ecommerce
+# 🍺 | Gomes Cachaçaria e Artesanato - Backend Ecommerce
 Este repositório contém o backend do sistema de e-commerce da Gomes Cachaçaria e Artesanato, especializado na venda de cachaças artesanais e produtos relacionados.
 O objetivo é fornecer uma API robusta, escalável e segura para suportar as operações de vendas, gestão de produtos, clientes e pedidos.
 
 ***
 
-## | Tecnologias Utilizadas
+## 🚀 | Tecnologias Utilizadas
 
 ***
 
-## | Estrutura do Projeto
+## 📂 | Estrutura do Projeto
 
 ***
 
-## | Funcionalidades
+## 🔑 | Funcionalidades
 
 ***
 
-## | Instalação e Execução
+## 📥 | Instalação e Execução
 
 ***
 
-## | Documentação
+## 📄 | Documentação
 
 ***
 
-## | Equipe
+## 👥 | Equipe
 
 - Aline de Albuquerque Henriques
 - Bruno Felipe de Castilhos Gomes Rego
@@ -33,5 +33,5 @@ O objetivo é fornecer uma API robusta, escalável e segura para suportar as ope
 
 ***
 
-## | Licença 
+## 📜 | Licença 
 Este projeto está licenciado sob a licença MIT.
