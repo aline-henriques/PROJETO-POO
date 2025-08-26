@@ -30,6 +30,17 @@ Relatório contendo processo de desenvolvimento do projeto.
 
 ***
 
+***
+## | Backlog
+Print do quadro das sprints atualizadas a cada entrega. (0/4)
+
+![Sprint 1]](./PROJETO-POO-main/img)
+![Sprint 2]](./PROJETO-POO-main/img)
+![Sprint 3]](./PROJETO-POO-main/img)
+![Sprint 4]](./PROJETO-POO-main/img)
+
+***
+
 ## 🔑 | Funcionalidades
 Apresentação das funcionalidades principais.
 
