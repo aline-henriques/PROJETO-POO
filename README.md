@@ -25,20 +25,20 @@ Sobre o Projeto e Tecnologias Utilizadas.
 
 ## 📂 | Documentação
 Relatório contendo processo de desenvolvimento do projeto.
+
 [🔗 Link](https://docs.google.com/document/d/1Ib6jJTVic5LUr9_o7C9ZTKErE26WM4vBt5e1zu12kv0/edit?usp=drivesdk)
 
 ***
 
 ## 🔑 | Funcionalidades
 Apresentação das funcionalidades principais.
+
 [🎥 Screencast](https://youtu.be/)
 
 ***
 
 ## ✍🏻 | Prototipação 
 Prototipação de baixa fidelidade (Lo-Fi) através do Figma. 
-(Screencast)
-(🔗 Figma)[https://figma)
 
 *** 
 
@@ -49,16 +49,19 @@ Como instalar e montar o ambiente corretamente para execução do programa em su
 
 ## ⚙️ | Issues e Bugs 
 Print das Issues e Bug Tracker atualizados a cada entrega. 
+
 ![Print 1]](./PROJETO-POO-main)
 
 *** 
 
 ## 🛠️ | Testes Automatizados
+
 [🔗 Screencast](https://youtu.be)
 
 ***
  
 ## 🔗 | Links Úteis 
+
 [Trello](https://trello.com/invite/b/68acb95bb432514982af6a20/ATTIc817d2314530f4f243989ed652e30f7dCAAA0488/projeto-cachacaria)
 
 *** 
