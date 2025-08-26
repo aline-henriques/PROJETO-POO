@@ -1,4 +1,3 @@
-
 # 🍺 | Gomes Cachaçaria e Artesanato - Backend Ecommerce
 Este repositório contém o backend do sistema de e-commerce da Gomes Cachaçaria e Artesanato, especializado na venda de cachaças artesanais e produtos relacionados.
 O objetivo é fornecer uma API robusta, escalável e segura para suportar as operações de vendas, gestão de produtos, clientes e pedidos.
@@ -7,30 +6,62 @@ O objetivo é fornecer uma API robusta, escalável e segura para suportar as ope
 
 ## 🖇️ | Índice
 1. [Sobre](#sobre)
-2. [Tecnologias Utilizadas](#tecnologias-utilizadas)
-3. [Estrutura do Projeto](#estrutura-do-projeto)
+3. [Documentação](#documentacao)
 4. [Funcionalidades](#funcionalidades)
-5. [Instalação e Execução](#instalacao-e-execucao)
-6. [Equipe](#equipe)
-7. [Licença](#licenca)
+5. [Prototipação](#prototipacao)
+6. [Instalação e Execução](#instalacao-e-execucao)
+7. [Issues e Bugs](#issues-e-bugs)
+8. [Testes Automatizados](#testes-automatizados)
+9. [Links Úteis](links-uteis)
+8. [Equipe](#equipe)
+9. [Licença](#licenca)
 
 ***
 
-## 🚀 | Tecnologias Utilizadas
+## ❓ | Sobre
+Sobre o Projeto e Tecnologias Utilizadas.
 
 ***
 
-## 📂 | Estrutura do Projeto
+## 📂 | Documentação
+Relatório contendo processo de desenvolvimento do projeto.
+[🔗 Link](https://docs.google.com/document/d/1Ib6jJTVic5LUr9_o7C9ZTKErE26WM4vBt5e1zu12kv0/edit?usp=drivesdk)
 
 ***
 
 ## 🔑 | Funcionalidades
+Apresentação das funcionalidades principais.
+[🎥 Screencast](https://youtu.be/)
 
 ***
+
+## ✍🏻 | Prototipação 
+Prototipação de baixa fidelidade (Lo-Fi) através do Figma. 
+(Screencast)
+(🔗 Figma)[https://figma)
+
+*** 
 
 ## 📥 | Instalação e Execução
+Como instalar e montar o ambiente corretamente para execução do programa em sua máquina?
 
 ***
+
+## ⚙️ | Issues e Bugs 
+Print das Issues e Bug Tracker atualizados a cada entrega. 
+![Print 1]](./PROJETO-POO-main)
+
+*** 
+
+## 🛠️ | Testes Automatizados
+[🔗 Screencast](https://youtu.be)
+
+***
+ 
+## 🔗 | Links Úteis 
+[Trello](https://trello.com/invite/b/68acb95bb432514982af6a20/ATTIc817d2314530f4f243989ed652e30f7dCAAA0488/projeto-cachacaria)
+
+*** 
 
 ## 👥 | Equipe
 
@@ -42,4 +73,5 @@ O objetivo é fornecer uma API robusta, escalável e segura para suportar as ope
 ***
 
 ## 📜 | Licença 
+
 Este projeto está licenciado sob a licença MIT.
