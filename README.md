@@ -7,8 +7,7 @@ O objetivo é fornecer uma API robusta, escalável e segura para suportar as ope
 ## 🖇️ | Índice
 1. [Sobre](#sobre)
 3. [Documentação](#documentacao)
-4. [Funcionalidades](#funcionalidades)
-5. [Prototipação](#prototipacao)
+4. [Entregas](#entregas)
 6. [Instalação e Execução](#instalacao-e-execucao)
 7. [Issues e Bugs](#issues-e-bugs)
 8. [Testes Automatizados](#testes-automatizados)
@@ -30,26 +29,23 @@ Relatório contendo processo de desenvolvimento do projeto.
 
 ***
 
-***
-## 📦 | Backlog
-Link do documento contendo as histórias de usuário bem definidas:
+## 📦 | Entregas
 
-[🔗 Link](https://docs.google.com/document/d/1Ib6jJTVic5LUr9_o7C9ZTKErE26WM4vBt5e1zu12kv0/edit?usp=drivesdk)
+• Entrega 1 (09/09/2025)
+- Link para o documento contendo as 7 histórias do usuário bem definidas: 
+[🔗 Histórias (1)](https://docs.Google.com/document/d/1cIzykgxuq5qt5FsES3_m7nf8Vwc7MquvAAhUof3-0FM/edit?usp=drivesdk) 
 
-Print do quadro das sprints atualizadas a cada entrega. (0/4)
-
-***
-
-## 🔑 | Funcionalidades
-Apresentação das funcionalidades principais.
-
-[🎥 Screencast](https://youtu.be/)
-
-***
-
-## ✍🏻 | Prototipação 
-Prototipação de baixa fidelidade (Lo-Fi) através do Figma. 
+- Link para o Figma, contendo o protótipo de baixa fidelidade (Lo-Fi):
 [🔗 Figma](https://www.figma.com/file/13gNLKF5izmAHEUwjIQeQN?node-id=0:1&locale=pt-br&type=design)
+
+- Screencast apresentando o protótipo no Figma, com áudio:
+[🔗 YouTube]( )
+
+• Entrega 2:
+
+• Entrega 3: 
+
+• Entrega 4:
 
 *** 
 
@@ -61,19 +57,19 @@ Como instalar e montar o ambiente corretamente para execução do programa em su
 ## ⚙️ | Issues e Bugs 
 Print das Issues e Bug Tracker atualizados a cada entrega. 
 
-![Print 1]](./PROJETO-POO-main)
-
 *** 
 
 ## 🛠️ | Testes Automatizados
 
-[🔗 Screencast](https://youtu.be)
+[🔗 Screencast dos Testes](https://youtu.be)
 
 ***
  
 ## 🔗 | Links Úteis 
 
 [Trello](https://trello.com/invite/b/68acb95bb432514982af6a20/ATTIc817d2314530f4f243989ed652e30f7dCAAA0488/projeto-cachacaria)
+[Relatório de Desenvolvimento](https://docs.google.com/document/d/1Ib6jJTVic5LUr9_o7C9ZTKErE26WM4vBt5e1zu12kv0/edit?usp=drivesdk)
+[Figma](https://www.figma.com/file/13gNLKF5izmAHEUwjIQeQN?node-id=0:1&locale=pt-br&type=design)
 
 *** 
 
