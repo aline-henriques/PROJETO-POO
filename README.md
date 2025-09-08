@@ -31,13 +31,12 @@ Relatório contendo processo de desenvolvimento do projeto.
 ***
 
 ***
-## | Backlog
-Print do quadro das sprints atualizadas a cada entrega. (0/4)
+## 📦 | Backlog
+Link do documento contendo as histórias de usuário bem definidas:
 
-![Sprint 1]](./PROJETO-POO-main/img)
-![Sprint 2]](./PROJETO-POO-main/img)
-![Sprint 3]](./PROJETO-POO-main/img)
-![Sprint 4]](./PROJETO-POO-main/img)
+[🔗 Link](https://docs.google.com/document/d/1Ib6jJTVic5LUr9_o7C9ZTKErE26WM4vBt5e1zu12kv0/edit?usp=drivesdk)
+
+Print do quadro das sprints atualizadas a cada entrega. (0/4)
 
 ***
 
@@ -50,6 +49,7 @@ Apresentação das funcionalidades principais.
 
 ## ✍🏻 | Prototipação 
 Prototipação de baixa fidelidade (Lo-Fi) através do Figma. 
+[🔗 Figma](https://www.figma.com/file/13gNLKF5izmAHEUwjIQeQN?node-id=0:1&locale=pt-br&type=design)
 
 *** 
 
