@@ -32,13 +32,16 @@ Relatório contendo processo de desenvolvimento do projeto.
 ## 📦 | Entregas
 
 • Entrega 1 (09/09/2025)
-- Link para o documento contendo as 7 histórias do usuário bem definidas: 
+Link para o documento contendo as 7 histórias do usuário bem definidas: 
+
 [🔗 Histórias (1)](https://docs.Google.com/document/d/1cIzykgxuq5qt5FsES3_m7nf8Vwc7MquvAAhUof3-0FM/edit?usp=drivesdk) 
 
-- Link para o Figma, contendo o protótipo de baixa fidelidade (Lo-Fi):
+Link para o Figma, contendo o protótipo de baixa fidelidade (Lo-Fi):
+
 [🔗 Figma](https://www.figma.com/file/13gNLKF5izmAHEUwjIQeQN?node-id=0:1&locale=pt-br&type=design)
 
-- Screencast apresentando o protótipo no Figma, com áudio:
+Screencast apresentando o protótipo no Figma, com áudio:
+
 [🔗 YouTube]( )
 
 • Entrega 2:
@@ -68,7 +71,9 @@ Print das Issues e Bug Tracker atualizados a cada entrega.
 ## 🔗 | Links Úteis 
 
 [Trello](https://trello.com/invite/b/68acb95bb432514982af6a20/ATTIc817d2314530f4f243989ed652e30f7dCAAA0488/projeto-cachacaria)
+
 [Relatório de Desenvolvimento](https://docs.google.com/document/d/1Ib6jJTVic5LUr9_o7C9ZTKErE26WM4vBt5e1zu12kv0/edit?usp=drivesdk)
+
 [Figma](https://www.figma.com/file/13gNLKF5izmAHEUwjIQeQN?node-id=0:1&locale=pt-br&type=design)
 
 *** 
