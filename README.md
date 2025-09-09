@@ -40,7 +40,7 @@ Link para o Figma, contendo o protótipo de baixa fidelidade (Lo-Fi):
 [🔗 Figma](https://www.figma.com/file/13gNLKF5izmAHEUwjIQeQN?node-id=0:1&locale=pt-br&type=design)
 
 Screencast apresentando o protótipo no Figma, com áudio:
-[🔗 YouTube]( )
+[🔗 YouTube](https://youtu.be/RnhhgKvjfEQ?feature=shared)
 
 - Entrega 2:
 
