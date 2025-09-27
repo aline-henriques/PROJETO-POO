@@ -1,0 +1,9 @@
+.container{
+    display: flex;
+    padding-left: 2rem;
+}
+
+main{
+    flex: 1;
+    padding: 1rem;
+}
