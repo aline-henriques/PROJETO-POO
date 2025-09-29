@@ -20,7 +20,7 @@ public class BebidaModel extends ProdutoModel {
     @Column(nullable = false)
     private Double teorAlcoolico;
 
-    private Integer tempoEnvelhecimentoMeses; 
+    private Integer envelhecimento; 
 
     private String madeiraEnvelhecimento; 
 

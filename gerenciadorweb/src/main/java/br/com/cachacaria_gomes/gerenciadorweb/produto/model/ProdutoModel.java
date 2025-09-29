@@ -39,6 +39,9 @@ public abstract class ProdutoModel {
 
     @Column(nullable = false)
     private BigDecimal preco;
+
+    @Column(nullable = false)
+    private Integer quantidadeEmEstoque;
     
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> fotosUrls;
