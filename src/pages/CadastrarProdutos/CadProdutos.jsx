@@ -1,24 +1,29 @@
 import { useState } from "react";
 
 function CadProdutos() {
-  const [categoria, setCategoria] = useState("bebida");
+  const [tipoProduto, setTipoProduto] = useState("bebida");
+  const [categoriaBebida, setCategoriaBebida] = useState("CACHACA");
+  const [categoriaArtesanato, setCategoriaArtesanato] = useState("CERAMICA");
   const [formData, setFormData] = useState({
     nome: "",
     preco: "",
-    fotos: "",
-    // comuns
-    categoria: "bebida",
-    // bebidas
+    fotosUrls: [],
+    quantidadeEmEstoque: "",
+    avaliacaoGeral: null,
+    tipoProduto: "bebida",
+    categoria: "CACHACA",
+    // Bebida
     origem: "",
     teorAlcoolico: "",
     envelhecimento: "",
-    madeira: "",
+    madeiraEnvelhecimento: "",
     avaliacaoSommelier: "",
-    // artesanato
-    material: "",
+    // Artesanato
+    tipoArtesanato: "CERAMICA",
+    materialPrincipal: "",
     dimensoes: "",
-    peso: "",
-    avaliacaoArtesao: ""
+    pesoKg: "",
+    avaliacaoArtesao: "",
   });
 
   const handleChange = (e) => {
@@ -26,25 +31,73 @@ function CadProdutos() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleCategoriaChange = (e) => {
+  const handleTipoProdutoChange = (e) => {
     const value = e.target.value;
-    setCategoria(value);
+    setTipoProduto(value);
+    setFormData({ ...formData, tipoProduto: value });
+  };
+
+  const handleCategoriaBebidaChange = (e) => {
+    const value = e.target.value.toUpperCase();
+    setCategoriaBebida(value);
     setFormData({ ...formData, categoria: value });
+  };
+
+  const handleCategoriaArtesanatoChange = (e) => {
+    const value = e.target.value.toUpperCase();
+    setCategoriaArtesanato(value);
+    setFormData({ ...formData, tipoArtesanato: value });
+  };
+
+  const handleFotosChange = (e) => {
+    const value = e.target.value;
+    setFormData({ ...formData, fotosUrls: value.split(",").map((s) => s.trim()) });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Enviando:", formData);
 
-    fetch("http://localhost:8080/api/produtos", {
+    const payload = {
+      ...formData,
+      preco: parseFloat(formData.preco) || 0,
+      quantidadeEmEstoque: parseInt(formData.quantidadeEmEstoque) || 0,
+      teorAlcoolico: formData.teorAlcoolico ? parseFloat(formData.teorAlcoolico) : null,
+      envelhecimento: formData.envelhecimento ? parseInt(formData.envelhecimento) : null,
+      pesoKg: formData.pesoKg ? parseFloat(formData.pesoKg) : null,
+      fotosUrls: formData.fotosUrls.length ? formData.fotosUrls : [],
+    };
+
+    console.log("Enviando payload:", payload);
+
+    fetch("http://localhost:8080/produtos/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(payload),
     })
       .then((res) => {
         if (res.ok) {
           alert("Produto cadastrado com sucesso!");
+          setFormData({
+            nome: "",
+            preco: "",
+            fotosUrls: [],
+            quantidadeEmEstoque: "",
+            avaliacaoGeral: null,
+            tipoProduto,
+            categoria: tipoProduto === "bebida" ? "CACHACA" : "",
+            origem: "",
+            teorAlcoolico: "",
+            envelhecimento: "",
+            madeiraEnvelhecimento: "",
+            avaliacaoSommelier: "",
+            tipoArtesanato: "CERAMICA",
+            materialPrincipal: "",
+            dimensoes: "",
+            pesoKg: "",
+            avaliacaoArtesao: "",
+          });
         } else {
+          res.text().then((text) => console.error("Erro ao cadastrar produto:", text));
           alert("Erro ao cadastrar produto");
         }
       })
@@ -54,7 +107,6 @@ function CadProdutos() {
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-4">Cadastrar Produto</h1>
-
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Campos comuns */}
         <input
@@ -80,25 +132,45 @@ function CadProdutos() {
         <input
           type="text"
           name="fotos"
-          placeholder="URL da foto"
-          value={formData.fotos}
+          placeholder="URLs das fotos (separadas por vírgula)"
+          value={formData.fotosUrls.join(", ")}
+          onChange={handleFotosChange}
+          className="border p-2 w-full rounded"
+        />
+
+        <input
+          type="number"
+          name="quantidadeEmEstoque"
+          placeholder="Quantidade em estoque"
+          value={formData.quantidadeEmEstoque}
           onChange={handleChange}
+          required
           className="border p-2 w-full rounded"
         />
 
         <select
-          name="categoria"
-          value={categoria}
-          onChange={handleCategoriaChange}
+          name="tipoProduto"
+          value={tipoProduto}
+          onChange={handleTipoProdutoChange}
           className="border p-2 w-full rounded"
         >
           <option value="bebida">Bebida</option>
           <option value="artesanato">Artesanato</option>
         </select>
 
-        {/* Campos específicos: bebidas */}
-        {categoria === "bebida" && (
+        {/* Bebida */}
+        {tipoProduto === "bebida" && (
           <>
+            <select
+              name="categoria"
+              value={categoriaBebida}
+              onChange={handleCategoriaBebidaChange}
+              className="border p-2 w-full rounded"
+            >
+              <option value="CACHACA">Cachaça</option>
+              <option value="LICOR">Licor</option>
+            </select>
+
             <input
               type="text"
               name="origem"
@@ -128,9 +200,9 @@ function CadProdutos() {
 
             <input
               type="text"
-              name="madeira"
+              name="madeiraEnvelhecimento"
               placeholder="Madeira de envelhecimento"
-              value={formData.madeira}
+              value={formData.madeiraEnvelhecimento}
               onChange={handleChange}
               className="border p-2 w-full rounded"
             />
@@ -146,14 +218,26 @@ function CadProdutos() {
           </>
         )}
 
-        {/* Campos específicos: artesanato */}
-        {categoria === "artesanato" && (
+        {/* Artesanato */}
+        {tipoProduto === "artesanato" && (
           <>
+            <select
+              name="tipoArtesanato"
+              value={categoriaArtesanato}
+              onChange={handleCategoriaArtesanatoChange}
+              className="border p-2 w-full rounded"
+            >
+              <option value="CERAMICA">Cerâmica</option>
+              <option value="MADEIRA">Madeira</option>
+              <option value="TECIDO">Tecido</option>
+              <option value="OUTROS">Outros</option>
+            </select>
+
             <input
               type="text"
-              name="material"
+              name="materialPrincipal"
               placeholder="Material principal"
-              value={formData.material}
+              value={formData.materialPrincipal}
               onChange={handleChange}
               className="border p-2 w-full rounded"
             />
@@ -169,9 +253,9 @@ function CadProdutos() {
 
             <input
               type="number"
-              name="peso"
+              name="pesoKg"
               placeholder="Peso (kg)"
-              value={formData.peso}
+              value={formData.pesoKg}
               onChange={handleChange}
               className="border p-2 w-full rounded"
             />

@@ -1,16 +1,27 @@
 package br.com.cachacaria_gomes.gerenciadorweb.produto.model;
 
-import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME, 
@@ -43,6 +54,7 @@ public abstract class ProdutoModel {
     @Column(nullable = false)
     private Integer quantidadeEmEstoque;
     
+    @Column(name = "fotos_urls", length = 1000, nullable = true) 
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> fotosUrls;
 
