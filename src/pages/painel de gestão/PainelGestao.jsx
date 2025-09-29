@@ -11,7 +11,7 @@ function PainelGestao() {
       <div className={styles.arrayCircles}>
         
         <nav>
-          <Link to="/products">
+          <Link to="/GestãoProdutos">
             <div className={styles.categoria}>
               <div className={styles.circles}>
                 <Package size={50} weight="fill" />

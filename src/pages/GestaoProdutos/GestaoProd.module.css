@@ -1,0 +1,31 @@
+.tittle{
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.arrayCircles{
+    display: flex;
+    gap: 10rem;
+    justify-content: center;
+}
+
+.circles{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    border: 2px solid black;
+    background: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.categoria{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+
+}
+
