@@ -9,7 +9,6 @@ O objetivo é fornecer uma API robusta, escalável e segura para suportar as ope
 3. [Documentação](#documentacao)
 4. [Entregas](#entregas)
 6. [Instalação e Execução](#instalacao-e-execucao)
-7. [Issues e Bugs](#issues-e-bugs)
 8. [Testes Automatizados](#testes-automatizados)
 9. [Links Úteis](links-uteis)
 8. [Equipe](#equipe)
@@ -47,7 +46,7 @@ Screencast apresentando as 2 novas histórias implementadas no sistema.
 [🔗 YouTube](https://youtu.be/IB9aBqRRahI?si=VCQeWuh8S9iW1T4e)
 
 Visualiza nossas Issues através do link:
-[🔗 Issues](
+[🔗 Issues](https://github.com/aline-henriques/PROJETO-POO/issues)
 
 - Entrega 3: 
 
@@ -57,11 +56,6 @@ Visualiza nossas Issues através do link:
 
 ## 📥 | Instalação e Execução
 Como instalar e montar o ambiente corretamente para execução do programa em sua máquina?
-
-***
-
-## ⚙️ | Issues e Bugs 
-Print das Issues e Bug Tracker atualizados a cada entrega. 
 
 *** 
 
