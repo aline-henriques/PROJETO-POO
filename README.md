@@ -43,6 +43,11 @@ Screencast apresentando o protótipo no Figma, com áudio:
 [🔗 YouTube](https://youtu.be/RnhhgKvjfEQ?feature=shared)
 
 - Entrega 2:
+Screencast apresentando as 2 novas histórias implementadas no sistema.
+[🔗 YouTube](https://youtu.be/IB9aBqRRahI?si=VCQeWuh8S9iW1T4e)
+
+Visualiza nossas Issues através do link:
+[🔗 Issues](
 
 - Entrega 3: 
 
