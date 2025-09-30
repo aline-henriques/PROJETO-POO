@@ -17,7 +17,38 @@ O objetivo é fornecer uma API robusta, escalável e segura para suportar as ope
 ***
 
 ## ❓ | Sobre
-Sobre o Projeto e Tecnologias Utilizadas.
+Este repositório apresenta o desenvolvimento de um sistema de e-commerce voltado à comercialização de cachaças artesanais e produtos relacionados, elaborado no contexto da disciplina de Programação Orientada a Objetos (POO). O projeto adota uma abordagem orientada a requisitos e foi estruturado a partir de histórias de usuário, descritas em linguagem clara e concisa, com cenários de validação definidos segundo o método BDD (Behavior-Driven Development), assegurando a entrega de valor alinhada às necessidades do negócio.
+
+As histórias contemplam tanto o front-office (visitante/cliente) quanto o back-office (administrador/gestor), abrangendo desde o acesso e navegação em uma página inicial intuitiva, cadastro de clientes, até funcionalidades de gestão administrativa, como cadastro de produtos, controle de estoque, acompanhamento de pedidos e visualização de histórico.
+
+O sistema foi concebido para ser robusto, escalável e de fácil manutenção, priorizando a qualidade do código, a clareza da arquitetura e a rastreabilidade de todas as operações realizadas.
+
+## ❓ | Tecnologias Utilizadas
+### Backend
+
+- Java
+- Spring Boot
+- JPA/Hibernate
+
+### Frontend
+
+- React
+- JavaScript
+- CSS Modules e CSS geral
+- Fetch API
+
+### Infraestrutura e Banco de Dados
+
+- PostgreSQL
+- Render.com
+- pgAdmin 4
+
+### Outras (auxiliares)
+
+- Figma
+- Trello
+- GitHub e Git
+- Canva
 
 ***
 
