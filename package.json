@@ -25,5 +25,10 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.4.0",
     "vite": "^7.1.7"
-  }
+  },
+  "description": "Este repositório contém o backend do sistema de e-commerce da Gomes Cachaçaria e Artesanato, especializado na venda de cachaças artesanais e produtos relacionados. O objetivo é fornecer uma API robusta, escalável e segura para suportar as operações de vendas, gestão de produtos, clientes e pedidos.",
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

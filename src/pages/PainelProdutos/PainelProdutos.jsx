@@ -13,7 +13,7 @@ export default function ProdutosGestao() {
   }, []);
 
   const carregarProdutos = () => {
-    fetch("http://localhost:8080/produtos/")
+    fetch("https://projeto-poo-1-tn4v.onrender.com/produtos/")
       .then((res) => res.ok ? res.json() : Promise.reject("Erro ao buscar produtos"))
       .then((data) => setProdutos(data))
       .catch((err) => console.error(err));
@@ -21,7 +21,7 @@ export default function ProdutosGestao() {
 
   const deletarProduto = (id) => {
     if (window.confirm("Deseja realmente excluir este produto?")) {
-      fetch(`http://localhost:8080/produtos/${id}`, { method: "DELETE" })
+      fetch(`https://projeto-poo-1-tn4v.onrender.com/produtos/${id}`, { method: "DELETE" })
         .then((res) => {
           if (res.ok) carregarProdutos();
           else alert("Erro ao excluir produto");
@@ -36,7 +36,7 @@ export default function ProdutosGestao() {
   };
 
   const salvarEdicao = (produtoAtualizado) => {
-    fetch(`http://localhost:8080/produtos/${produtoAtualizado.id}`, {
+    fetch(`https://projeto-poo-1-tn4v.onrender.com/produtos/${produtoAtualizado.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(produtoAtualizado),

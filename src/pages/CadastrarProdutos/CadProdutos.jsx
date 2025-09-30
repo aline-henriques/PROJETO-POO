@@ -71,7 +71,7 @@ function CadProdutos() {
 
     console.log("Enviando payload:", payload);
 
-    fetch("http://localhost:8080/produtos/", {
+    fetch("https://projeto-poo-1-tn4v.onrender.com/produtos/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
