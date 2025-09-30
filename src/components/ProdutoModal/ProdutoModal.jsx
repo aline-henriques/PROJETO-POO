@@ -32,6 +32,11 @@ function ProdutoModal({ produto, onClose, onSave }) {
     setForm({ ...form, [name]: value });
   };
 
+  const handleFotosChange = (e) => {
+    const value = e.target.value;
+    setForm({ ...form, fotosUrls: value.split(",").map((s) => s.trim()) });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -44,13 +49,29 @@ function ProdutoModal({ produto, onClose, onSave }) {
     // Converter tipos para numéricos quando necessário
     const payload = {
       ...form,
-      preco: parseFloat(form.preco) || 0,
-      quantidadeEmEstoque: parseInt(form.quantidadeEmEstoque) || 0,
-      teorAlcoolico: form.teorAlcoolico ? parseFloat(form.teorAlcoolico) : null,
-      envelhecimento: form.envelhecimento ? parseInt(form.envelhecimento) : null,
-      pesoKg: form.pesoKg ? parseFloat(form.pesoKg) : null,
-      fotosUrls: form.fotosUrls.length ? form.fotosUrls : [],
+      preco: parseFloat(form.preco),
+      quantidadeEmEstoque: parseInt(form.quantidadeEmEstoque),
+      fotosUrls: form.fotosUrls,
+      ...(form.teorAlcoolico && { teorAlcoolico: parseFloat(form.teorAlcoolico) }),
+      ...(form.envelhecimento && { envelhecimento: parseInt(form.envelhecimento) }),
+      ...(form.pesoKg && { pesoKg: parseFloat(form.pesoKg) }),
     };
+
+    if (form.tipoProduto === "bebida") {
+      delete payload.tipoArtesanato;
+      delete payload.materialPrincipal;
+      delete payload.dimensoes;
+      delete payload.pesoKg;
+      delete payload.avaliacaoArtesao;
+    } else if (form.tipoProduto === "artesanato") {
+      delete payload.origem;
+      delete payload.teorAlcoolico;
+      delete payload.envelhecimento;
+      delete payload.madeiraEnvelhecimento;
+      delete payload.avaliacaoSommelier;
+    }
+
+    console.log("Payload enviado:", payload);
 
     fetch(url, {
       method: method,
@@ -69,6 +90,7 @@ function ProdutoModal({ produto, onClose, onSave }) {
   };
 
   return (
+    
     <div className={styles.overlay}>
       <div className={styles.modal}>
         <h3 className={styles.titulo}>
@@ -84,6 +106,15 @@ function ProdutoModal({ produto, onClose, onSave }) {
             onChange={handleChange}
             className={styles.input}
             required
+          />
+
+          <input
+            type="text"
+            name="fotosUrls"
+            placeholder="URLs das fotos (separadas por vírgula)"
+            value={form.fotosUrls}
+            onChange={handleFotosChange}
+            className={styles.input}
           />
 
           <input

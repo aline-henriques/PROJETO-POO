@@ -59,6 +59,18 @@ function CadProdutos() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+        let urlsArray = [];
+
+        if (typeof formData.fotosUrls === 'string' && formData.fotosUrls.trim().length > 0) {
+        // Ação: Converte a string em um array, dividindo por vírgula ou nova linha
+          urlsArray = formData.fotosUrls
+              .split(/[\n,]+/) // Divide por nova linha ou vírgula
+              .map(url => url.trim()) // Remove espaços em branco
+              .filter(url => url.length > 0); // Remove strings vazias
+        } else if (Array.isArray(formData.fotosUrls)) {
+              urlsArray = formData.fotosUrls;
+          }
+
     const payload = {
       ...formData,
       preco: parseFloat(formData.preco) || 0,
@@ -66,7 +78,7 @@ function CadProdutos() {
       teorAlcoolico: formData.teorAlcoolico ? parseFloat(formData.teorAlcoolico) : null,
       envelhecimento: formData.envelhecimento ? parseInt(formData.envelhecimento) : null,
       pesoKg: formData.pesoKg ? parseFloat(formData.pesoKg) : null,
-      fotosUrls: formData.fotosUrls.length ? formData.fotosUrls : [],
+      fotosUrls: urlsArray,
     };
 
     console.log("Enviando payload:", payload);
@@ -131,11 +143,11 @@ function CadProdutos() {
           className={styles.input}
         />
 
-        <input
+       <input
           type="text"
-          name="fotos"
+          name="fotosUrls"
           placeholder="URLs das fotos (separadas por vírgula)"
-          value={formData.fotosUrls.join(", ")}
+          value={Array.isArray(formData.fotosUrls) ? formData.fotosUrls.join(", ") : formData.fotosUrls}
           onChange={handleFotosChange}
           className={styles.input}
         />
