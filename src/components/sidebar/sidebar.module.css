@@ -1,9 +1,10 @@
 .container{
-    background-color: lightgray;
+    background-color: var(--cor-borda);
     width: 8.75rem;
     height: calc(100vh - 6rem);
-    color: white;
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    justify-content: flex-end;
 }
+

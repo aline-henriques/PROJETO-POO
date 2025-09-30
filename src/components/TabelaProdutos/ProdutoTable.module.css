@@ -1,0 +1,38 @@
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.theadTr {
+  background-color: var(--cor-card);
+  text-align: center;
+}
+
+.th,
+.td {
+  padding: 0.5rem;
+  border: 1px solid var(--cor-borda);
+  text-align: center;
+}
+
+.tr {
+  text-align: center;
+}
+
+.botaoEditar {
+  padding: 0.25rem 0.75rem;
+  background-color: var(--cor-sucesso); 
+  color: var(--cor-texto-destaque);
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.botaoExcluir {
+  padding: 0.25rem 0.75rem;
+  background-color: var(--cor-erro); 
+  color: var(--cor-texto-destaque);
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}

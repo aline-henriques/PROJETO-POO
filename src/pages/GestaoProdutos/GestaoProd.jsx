@@ -14,33 +14,23 @@ function GestaoProd() {
           <Link to="/products">
             <div className={styles.categoria}>
               <div className={styles.circles}>
-                <Plus size={50} weight="fill" />
+                <Plus size={75} weight="fill" color="gray" />
               </div>
               <h3>Adicionar</h3>
             </div>
           </Link>
         </nav>
         
-        <div className={styles.categoria}>
-          <div className={styles.circles}>
-            <ListBullets size={50} weight="fill" />
-          </div>
-          <h3>Listar</h3>
-        </div>
-        <div className={styles.categoria}>
-          <div className={styles.circles}>
-            <NotePencil size={50} weight="fill" />
-          </div>
-          <h3>Editar</h3>
-        </div>
-      </div>
-      <div className={styles.arrayCircles}>
-        <div className={styles.categoria}>
-          <div className={styles.circles}>
-            <Trash size={50} weight="fill" />
-          </div>
-          <h3>Remover</h3>
-        </div>
+        <nav>
+          <Link to="/PainelProdutos">
+            <div className={styles.categoria}>
+              <div className={styles.circles}>
+                <ListBullets size={75} weight="fill" color="gray"/>
+              </div>
+              <h3>Gerir</h3>
+            </div>
+          </Link>
+        </nav>
       </div>
         
       

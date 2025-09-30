@@ -1,4 +1,6 @@
 import { useState } from "react";
+import styles from "../CadastrarProdutos/CadProdutos.module.css"
+
 
 function CadProdutos() {
   const [tipoProduto, setTipoProduto] = useState("bebida");
@@ -105,9 +107,9 @@ function CadProdutos() {
   };
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Cadastrar Produto</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className={styles.container}>
+      <h1 className={styles.titulo}>Cadastrar Produto</h1>
+      <form onSubmit={handleSubmit} className={styles.formulario}>
         {/* Campos comuns */}
         <input
           type="text"
@@ -116,7 +118,7 @@ function CadProdutos() {
           value={formData.nome}
           onChange={handleChange}
           required
-          className="border p-2 w-full rounded"
+          className={styles.input}
         />
 
         <input
@@ -126,7 +128,7 @@ function CadProdutos() {
           value={formData.preco}
           onChange={handleChange}
           required
-          className="border p-2 w-full rounded"
+          className={styles.input}
         />
 
         <input
@@ -135,7 +137,7 @@ function CadProdutos() {
           placeholder="URLs das fotos (separadas por vírgula)"
           value={formData.fotosUrls.join(", ")}
           onChange={handleFotosChange}
-          className="border p-2 w-full rounded"
+          className={styles.input}
         />
 
         <input
@@ -145,14 +147,14 @@ function CadProdutos() {
           value={formData.quantidadeEmEstoque}
           onChange={handleChange}
           required
-          className="border p-2 w-full rounded"
+          className={styles.input}
         />
 
         <select
           name="tipoProduto"
           value={tipoProduto}
           onChange={handleTipoProdutoChange}
-          className="border p-2 w-full rounded"
+          className={styles.select}
         >
           <option value="bebida">Bebida</option>
           <option value="artesanato">Artesanato</option>
@@ -165,7 +167,7 @@ function CadProdutos() {
               name="categoria"
               value={categoriaBebida}
               onChange={handleCategoriaBebidaChange}
-              className="border p-2 w-full rounded"
+              className={styles.select}
             >
               <option value="CACHACA">Cachaça</option>
               <option value="LICOR">Licor</option>
@@ -177,7 +179,7 @@ function CadProdutos() {
               placeholder="Origem (cidade/estado)"
               value={formData.origem}
               onChange={handleChange}
-              className="border p-2 w-full rounded"
+              className={styles.input}
             />
 
             <input
@@ -186,7 +188,7 @@ function CadProdutos() {
               placeholder="Teor alcoólico (%)"
               value={formData.teorAlcoolico}
               onChange={handleChange}
-              className="border p-2 w-full rounded"
+              className={styles.input}
             />
 
             <input
@@ -195,7 +197,7 @@ function CadProdutos() {
               placeholder="Tempo de envelhecimento (anos)"
               value={formData.envelhecimento}
               onChange={handleChange}
-              className="border p-2 w-full rounded"
+              className={styles.input}
             />
 
             <input
@@ -204,7 +206,7 @@ function CadProdutos() {
               placeholder="Madeira de envelhecimento"
               value={formData.madeiraEnvelhecimento}
               onChange={handleChange}
-              className="border p-2 w-full rounded"
+              className={styles.input}
             />
 
             <input
@@ -213,7 +215,7 @@ function CadProdutos() {
               placeholder="Avaliação do sommelier"
               value={formData.avaliacaoSommelier}
               onChange={handleChange}
-              className="border p-2 w-full rounded"
+              className={styles.input}
             />
           </>
         )}
@@ -225,7 +227,7 @@ function CadProdutos() {
               name="tipoArtesanato"
               value={categoriaArtesanato}
               onChange={handleCategoriaArtesanatoChange}
-              className="border p-2 w-full rounded"
+              className={styles.select}
             >
               <option value="CERAMICA">Cerâmica</option>
               <option value="MADEIRA">Madeira</option>
@@ -239,7 +241,7 @@ function CadProdutos() {
               placeholder="Material principal"
               value={formData.materialPrincipal}
               onChange={handleChange}
-              className="border p-2 w-full rounded"
+              className={styles.input}
             />
 
             <input
@@ -248,7 +250,7 @@ function CadProdutos() {
               placeholder="Dimensões (AxLxP)"
               value={formData.dimensoes}
               onChange={handleChange}
-              className="border p-2 w-full rounded"
+              className={styles.input}
             />
 
             <input
@@ -257,7 +259,7 @@ function CadProdutos() {
               placeholder="Peso (kg)"
               value={formData.pesoKg}
               onChange={handleChange}
-              className="border p-2 w-full rounded"
+              className={styles.input}
             />
 
             <input
@@ -266,14 +268,14 @@ function CadProdutos() {
               placeholder="Avaliação do artesão"
               value={formData.avaliacaoArtesao}
               onChange={handleChange}
-              className="border p-2 w-full rounded"
+              className={styles.input}
             />
           </>
         )}
 
         <button
           type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          className={styles.botao}
         >
           Cadastrar
         </button>
