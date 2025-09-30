@@ -41,11 +41,13 @@ Link para o Figma, contendo o protótipo de baixa fidelidade (Lo-Fi):
 Screencast apresentando o protótipo no Figma, com áudio:
 [🔗 YouTube](https://youtu.be/RnhhgKvjfEQ?feature=shared)
 
-- Entrega 2:
-Screencast apresentando as 2 novas histórias implementadas no sistema.
+
+- Entrega 2 (30/09/2025)
+
+Screencast apresentando as 2 novas histórias implementadas no sistema:
 [🔗 YouTube](https://youtu.be/IB9aBqRRahI?si=VCQeWuh8S9iW1T4e)
 
-Visualiza nossas Issues através do link:
+Visualize nossas Issues através do link:
 [🔗 Issues](https://github.com/aline-henriques/PROJETO-POO/issues)
 
 - Entrega 3: 
