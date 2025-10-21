@@ -1,0 +1,40 @@
+.container {
+  padding: 1.5rem;
+}
+
+.titulo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; 
+}
+
+.input,
+.select,
+.textarea {
+  border: 1px solid var(--cor-borda);
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 0.25rem;
+}
+
+.botao {
+  background-color: var(--cor-botao); 
+  color: var(--cor-texto-destaque);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.botao:hover {
+  background-color: var(--cor-botao-hover);
+  color: var(--cor-texto-hover);
+  transform: scale(1.05);
+}

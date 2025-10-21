@@ -1,0 +1,11 @@
+.container {
+    padding: 1.5rem;
+    min-height: 80vh; /* Garante que a tela tenha um tamanho mínimo */
+}
+
+.titulo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333; /* Cor escura para títulos */
+}

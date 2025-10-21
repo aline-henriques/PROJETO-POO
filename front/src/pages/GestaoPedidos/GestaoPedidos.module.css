@@ -1,0 +1,11 @@
+.container {
+    padding: 1.5rem;
+    min-height: 80vh; 
+}
+
+.titulo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #555; 
+}

@@ -1,0 +1,39 @@
+:root{
+    --cor-fundo: #f5f5f5;
+    --cor-card: #ffffff;
+    --cor-sidebar: #e0e0e0;
+    --cor-borda: #d0d0d0;
+
+    --cor-texto: #333333;
+    --cor-texto-secundario: #666666;
+    --cor-texto-destaque: #000000;
+    --cor-texto-hover: #ffffff;
+
+    --cor-botao: #888888;
+    --cor-botao-hover: #555555;
+
+    --cor-erro: #b00020;
+    --cor-sucesso: #00796b;
+    
+    
+}
+
+*{
+    color: var(--cor-texto);
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    
+}
+
+.container{
+    display: flex;
+    padding-left: 2rem;
+    background-color: var(--cor-fundo);
+}
+
+main{
+    flex: 1;
+    padding: 1rem;
+}

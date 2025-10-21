@@ -1,0 +1,39 @@
+
+.container h1{
+    font-weight: bold;
+    font-size: 2rem;
+    margin-left: 2rem;
+}
+
+.arrayCircles{
+    display: flex;
+    gap: 10rem;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.circles{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    border: 2px solid var(--cor-fonte);
+    background: var(--cor-borda);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+
+.categoria{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.categoria:hover{
+    transform: scale(1.1);
+}
+

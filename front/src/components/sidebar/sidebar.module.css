@@ -1,0 +1,10 @@
+.container{
+    background-color: var(--cor-borda);
+    width: 8.75rem;
+    height: calc(100vh - 6rem);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: flex-end;
+}
+
