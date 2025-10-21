@@ -81,7 +81,17 @@ Screencast apresentando as 2 novas histórias implementadas no sistema:
 Visualize nossas Issues através do link:
 [🔗 Issues](https://github.com/aline-henriques/PROJETO-POO/issues)
 
-- Entrega 3: 
+- Entrega 3 (23/10/2025)
+
+Screencast apresentando as 2 novas histórias implementadas no sistema:
+[🔗 YouTube](https://youtu.be)
+
+Screencast com a realização de testes de sistema:
+[🔗 YouTube](https://youtu.be)
+
+Visualize nossas Issues através do link:
+[🔗 Issues](https://github.com/aline-henriques/PROJETO-POO/issues)
+
 
 - Entrega 4:
 
