@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './PainelClientes.module.css';
+// IMPORTANTE: Adiciona a importação dos ícones
 
 
 export default function PainelClientes() {
@@ -22,6 +23,8 @@ export default function PainelClientes() {
         <Link to="/GestaoClientes">
           <div className={styles.categoria}>
             <div className={styles.circles}>
+
+
             </div>
             <h3>Gerir</h3>
           </div>

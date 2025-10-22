@@ -1,64 +1,46 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
-  const [erro, setErro] = useState('');
-  const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const [error, setError] = useState('');
+    const { login } = useAuth(); 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setErro('');
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError('');
+        try {
+            await login(email, senha);
 
-    try {
-      const response = await fetch('http://localhost:8080/auth/login', { 
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, senha }),
-      });
+        } catch (err) {
+            setError(err.message || 'Erro ao tentar fazer login. Tente novamente.');
+        }
+    };
 
-      if (!response.ok) {
-        throw new Error('Email ou senha inválidos.');
-      }
-
-      alert('Login realizado com sucesso!');
-      navigate('/');
-    } catch (error) {
-      setErro(error.message);
-    }
-  };
-
-  return (
-    <div >
-      <form onSubmit={handleSubmit} >
-        <h1>Login</h1>
-        {erro && <p style={{ color: 'red' }}>{erro}</p>}
-        
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+    return (
+        <div className="login-container">
+            <h1>Login</h1>
+            <form onSubmit={handleSubmit}>
+                <input 
+                    type="text" 
+                    placeholder="E-mail ou Usuário"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
+                <input 
+                    type="password" 
+                    placeholder="Senha"
+                    value={senha}
+                    onChange={(e) => setSenha(e.target.value)}
+                    required
+                />
+                {error && <p style={{ color: 'red' }}>{error}</p>}
+                <button type="submit">Entrar</button>
+            </form>
         </div>
-        
-        <div>
-          <label>Senha:</label>
-          <input
-            type="password"
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
-            required
-          />
-        </div>
-        
-        <button type="submit">Entrar</button>
-      </form>
-    </div>
-  );
+    );
 }
 
 export default Login;

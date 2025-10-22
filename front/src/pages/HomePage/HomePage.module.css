@@ -1,0 +1,202 @@
+/* Container da Página */
+.pageContainer {
+    width: 100%;
+    max-width: 1200px; /* Largura máxima do conteúdo central */
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+/* ================== CABEÇALHO (Header) ================== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: bold;
+    margin-right: 30px;
+}
+
+.searchBarContainer {
+    flex-grow: 1;
+    display: flex;
+    max-width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.searchBar {
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    flex-grow: 1;
+    outline: none;
+}
+
+.searchButton {
+    background-color: #f8f8f8;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.userSection {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.9em;
+}
+
+.minhaConta {
+    color: #888;
+}
+
+.loginButton {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.carrinho {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: orange;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 0.7em;
+}
+
+/* ================== NAVEGAÇÃO DE CATEGORIAS ================== */
+.categoryNav {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.categoryLink {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
+
+/* ================== CARROSSEL PRINCIPAL (Hero) ================== */
+.mainCarousel {
+    position: relative;
+    width: 100%;
+    margin: 20px 0 50px 0;
+}
+
+.imagePlaceholderLarge {
+    background-color: #eee;
+    height: 400px; /* Altura do carrossel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    color: #ccc;
+}
+
+.carouselDots {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.activeDot {
+    background-color: #888;
+}
+
+/* ================== SEÇÕES DE PRODUTOS ================== */
+.productSection {
+    margin-bottom: 60px;
+    padding: 0 10px;
+}
+
+.sectionTitle {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.productList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.arrow {
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5em;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.arrow:hover {
+    background-color: #f0f0f0;
+}
+
+.productCard {
+    text-align: center;
+    width: 200px; /* Largura do card */
+    padding: 15px;
+}
+
+.imagePlaceholder {
+    background-color: #eee;
+    height: 180px;
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: #ccc;
+}
+
+.productName {
+    font-weight: bold;
+    color: #333;
+    margin: 5px 0;
+}
+
+.productPrice {
+    color: #555;
+    font-size: 1.1em;
+}
