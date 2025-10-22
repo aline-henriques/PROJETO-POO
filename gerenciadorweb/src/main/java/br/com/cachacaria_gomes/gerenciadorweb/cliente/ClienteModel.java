@@ -1,6 +1,8 @@
 package br.com.cachacaria_gomes.gerenciadorweb.cliente;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,6 +14,8 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import br.com.cachacaria_gomes.gerenciadorweb.enums.*;
+import jakarta.persistence.*;
 
 import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDate; // Alterado para LocalDate
@@ -65,4 +69,8 @@ public class ClienteModel {
 
     @CreationTimestamp
     private LocalDateTime createdAt;
+
+    @Enumerated(EnumType.STRING) 
+    @Column(name = "role", nullable = false)
+    private Role role = Role.CLIENTE;
 }
