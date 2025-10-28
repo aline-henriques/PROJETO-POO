@@ -9,7 +9,6 @@ O objetivo é fornecer uma API robusta, escalável e segura para suportar as ope
 3. [Documentação](#documentacao)
 4. [Entregas](#entregas)
 6. [Instalação e Execução](#instalacao-e-execucao)
-8. [Testes Automatizados](#testes-automatizados)
 9. [Links Úteis](links-uteis)
 8. [Equipe](#equipe)
 9. [Licença](#licenca)
@@ -99,12 +98,6 @@ Visualize nossas Issues através do link:
 
 ## 📥 | Instalação e Execução
 Como instalar e montar o ambiente corretamente para execução do programa em sua máquina?
-
-*** 
-
-## 🛠️ | Testes Automatizados
-
-[🔗 Screencast dos Testes](https://youtu.be)
 
 ***
  
