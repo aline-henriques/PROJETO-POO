@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface IClienteRepository extends JpaRepository<ClienteModel, UUID> {
+public interface IClienteRepository extends JpaRepository<ClienteModel, String> {
     ClienteModel findByUsuario(String usuario);
     ClienteModel findByEmail(String email);
     ClienteModel findByCpf(String cpf);

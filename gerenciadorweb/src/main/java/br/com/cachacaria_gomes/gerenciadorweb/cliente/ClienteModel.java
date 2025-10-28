@@ -28,10 +28,11 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ClienteModel {
-    
+
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @NotBlank(message = "O CPF é obrigatório")
+    @Size(min = 11, max = 11, message = "O CPF deve ter 11 dígitos (apenas números)")
+    private String cpf;
 
     @NotBlank(message = "O nome completo é obrigatório")
     private String nomeCompleto;
@@ -56,9 +57,7 @@ public class ClienteModel {
     @Past(message = "A data de nascimento deve ser uma data passada") 
     private LocalDate dataNascimento;
 
-    @NotBlank(message = "O CPF é obrigatório")
-    @Size(min = 11, max = 11, message = "O CPF deve ter 11 dígitos (apenas números)")
-    private String cpf;
+    
     
     @NotBlank(message = "O e-mail é obrigatório")
     @Email(message = "O e-mail deve ter um formato válido")
