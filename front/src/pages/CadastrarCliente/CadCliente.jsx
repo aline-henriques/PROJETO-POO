@@ -71,6 +71,19 @@ function CadCliente() {
   }
 };
 
+const validarIdadeMinima = (dataNascimento, idadeMinima = 18) => {
+  const hoje = new Date();
+  const nascimento = new Date(dataNascimento);
+  let idade = hoje.getFullYear() - nascimento.getFullYear();
+  const mes = hoje.getMonth() - nascimento.getMonth();
+
+  if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+    idade--;
+  }
+
+  return idade >= idadeMinima;
+};
+
   
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
@@ -104,6 +117,12 @@ function CadCliente() {
       setLoading(false);
       return;
     }
+
+    if (!validarIdadeMinima(formData.dataNascimento)) {
+      setError("Você precisa ter pelo menos 18 anos para se cadastrar.");
+      setLoading(false);
+      return;
+}
 
     const mensagemErroEndereco = await validarEnderecoViaCEP(formData.cep, formData);
       if (mensagemErroEndereco) {
