@@ -1,1 +1,6 @@
+br\com\cachacaria_gomes\gerenciadorweb\cliente\ClienteServiceTest.class
 br\com\cachacaria_gomes\gerenciadorweb\GerenciadorwebApplicationTests.class
+br\com\cachacaria_gomes\gerenciadorweb\cliente\IClienteRepositoryTest.class
+br\com\cachacaria_gomes\gerenciadorweb\cliente\ClienteControllerTest.class
+br\com\cachacaria_gomes\gerenciadorweb\login\LoginControllerTest.class
+br\com\cachacaria_gomes\gerenciadorweb\login\LoginServiceTest.class

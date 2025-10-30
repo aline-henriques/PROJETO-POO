@@ -1,0 +1,37 @@
+-------------------------------------------------------------------------------
+Test set: br.com.cachacaria_gomes.gerenciadorweb.cliente.ClienteControllerTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 6.122 s <<< FAILURE! -- in br.com.cachacaria_gomes.gerenciadorweb.cliente.ClienteControllerTest
+br.com.cachacaria_gomes.gerenciadorweb.cliente.ClienteControllerTest.createUser_ShouldReturn409Conflict_WhenUserExists -- Time elapsed: 0.577 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<409> but was:<400>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:61)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:128)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:640)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at br.com.cachacaria_gomes.gerenciadorweb.cliente.ClienteControllerTest.createUser_ShouldReturn409Conflict_WhenUserExists(ClienteControllerTest.java:80)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+br.com.cachacaria_gomes.gerenciadorweb.cliente.ClienteControllerTest.createUser_ShouldReturn400BadRequest_WhenValidationFails -- Time elapsed: 0.029 s <<< FAILURE!
+java.lang.AssertionError: Response content expected:<Idade mínima 18 anos> but was:<O bairro é obrigatório. O CEP é obrigatório. A cidade é obrigatória. O e-mail é obrigatório. O estado é obrigatório. O número é obrigatório. A rua é obrigatória. O nome completo é obrigatório>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:61)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:128)
+	at org.springframework.test.web.servlet.result.ContentResultMatchers.lambda$string$4(ContentResultMatchers.java:148)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at br.com.cachacaria_gomes.gerenciadorweb.cliente.ClienteControllerTest.createUser_ShouldReturn400BadRequest_WhenValidationFails(ClienteControllerTest.java:99)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+br.com.cachacaria_gomes.gerenciadorweb.cliente.ClienteControllerTest.createUser_ShouldReturn201Created -- Time elapsed: 0.028 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<201> but was:<400>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:61)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:128)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:640)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at br.com.cachacaria_gomes.gerenciadorweb.cliente.ClienteControllerTest.createUser_ShouldReturn201Created(ClienteControllerTest.java:60)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
