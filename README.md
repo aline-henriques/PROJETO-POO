@@ -86,7 +86,7 @@ Screencast apresentando as 2 novas histórias implementadas no sistema:
 [🔗 YouTube](https://youtu.be)
 
 Screencast com a realização de testes de sistema:
-[🔗 YouTube](https://youtu.be)
+[🔗 YouTube](https://youtu.be/mnNNUw7LLF4?si=LNKP3u_JBY-ZiKSo)
 
 Visualize nossas Issues através do link:
 [🔗 Issues](https://github.com/aline-henriques/PROJETO-POO/issues)
