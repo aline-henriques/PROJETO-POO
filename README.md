@@ -60,7 +60,7 @@ Relatório contendo processo de desenvolvimento do projeto.
 
 ## 📦 | Entregas
 
-- Entrega 1 (09/09/2025)
+- **Entrega 1 (09/09/2025)**
 
 Link para o documento contendo as 7 histórias do usuário bem definidas: 
 [🔗 Histórias (1)](https://docs.Google.com/document/d/1cIzykgxuq5qt5FsES3_m7nf8Vwc7MquvAAhUof3-0FM/edit?usp=drivesdk) 
@@ -72,7 +72,7 @@ Screencast apresentando o protótipo no Figma, com áudio:
 [🔗 YouTube](https://youtu.be/RnhhgKvjfEQ?feature=shared)
 
 
-- Entrega 2 (30/09/2025)
+- **Entrega 2 (30/09/2025)**
 
 Screencast apresentando as 2 novas histórias implementadas no sistema:
 [🔗 YouTube](https://youtu.be/IB9aBqRRahI?si=VCQeWuh8S9iW1T4e)
@@ -80,9 +80,21 @@ Screencast apresentando as 2 novas histórias implementadas no sistema:
 Visualize nossas Issues através do link:
 [🔗 Issues](https://github.com/aline-henriques/PROJETO-POO/issues)
 
-- Entrega 3 (23/10/2025)
+- **Entrega 3 (23/10/2025)**
 
 Screencast apresentando as 2 novas histórias implementadas no sistema:
+[🔗 YouTube](https://youtu.be/QwUoWv91cxk?si=M9O6uMBf-8BD61zr)
+
+Screencast com a realização de testes de sistema:
+[🔗 YouTube](https://youtu.be/mnNNUw7LLF4?si=LNKP3u_JBY-ZiKSo)
+
+Visualize nossas Issues através do link:
+[🔗 Issues](https://github.com/aline-henriques/PROJETO-POO/issues)
+
+
+- **Entrega 4 (17/11/2025)**
+
+Screencast apresentando as 3 novas histórias implementadas no sistema:
 [🔗 YouTube](https://youtu.be)
 
 Screencast com a realização de testes de sistema:
@@ -90,9 +102,6 @@ Screencast com a realização de testes de sistema:
 
 Visualize nossas Issues através do link:
 [🔗 Issues](https://github.com/aline-henriques/PROJETO-POO/issues)
-
-
-- Entrega 4:
 
 *** 
 
