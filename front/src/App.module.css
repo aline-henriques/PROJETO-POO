@@ -14,12 +14,18 @@
 
     --cor-erro: #b00020;
     --cor-sucesso: #00796b;
+
+    --yellow-main:   #FFCC03;
+    --brown-dark:    #3E3026;
+    --brown-light:   #D4C2A8;
+    --black:         #000000;
+    --white:         #FFFFFF;
     
     
 }
 
 *{
-    color: var(--cor-texto);
+    color: var(--brown-dark);
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;

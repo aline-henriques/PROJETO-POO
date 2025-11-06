@@ -1,30 +1,39 @@
-import React from 'react'; // Adicione a importação do React
+import { useAuth } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
+import LogoCachacaria from "../../assets/Fotos/LogoCachacaria.png"
 import styles from "./navbar.module.css" // Ajuste o caminho se necessário
 
 function Navbar() {
 
+  const { role, isLoggedIn } = useAuth();
+
   const Header = () => (
     <div className={styles.header}>
-      <h1 className={styles.logo}>
-        <Link to="/">
+      <div className={styles.logo}>
+        <img src={LogoCachacaria} alt="logo" />
+      </div>
+      <div className={styles.headerCenter}>
+        <Link to="/" className={styles.titlle}>
           Gomes Artesanato e Cachaçaria
         </Link>
-      </h1>
-      <div className={styles.searchBarContainer}>
-        <input type="text" placeholder="Pesquise algo aqui..." className={styles.searchBar} />
-        <button className={styles.searchButton}>🔍</button>
+        <div className={styles.searchBarContainer}>
+          <input type="text" placeholder="Pesquise algo aqui..." className={styles.searchBar} />
+          <button className={styles.searchButton}>🔍</button>
+      </div>
       </div>
       <div className={styles.userSection}>
-
-        <Link to="/login" className={styles.minhaConta}>
-          Login
-        </Link>
-        <button className={styles.loginButton}>
-          <Link to="/cadastro">
-            Cadastre-se
-          </Link></button>
-        <button className={styles.carrinho}>🛒<span className={styles.badge}>0</span></button>
+        <div className={styles.upperSection}>
+           <Link to="/login" className={styles.minhaConta}>
+            Login
+          </Link>
+          <button className={styles.loginButton}>
+            <Link to="/cadastro">
+              Cadastre-se
+            </Link></button>
+            {role === "CLIENTE" && (
+              <button className={styles.carrinho}>🛒<span className={styles.badge}>0</span></button>
+            )}
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './HomePage.module.css';
+import Navbar from '../../components/navbar/navbar';
 
 export default function HomePage() {
 
@@ -17,10 +18,11 @@ export default function HomePage() {
     );
 
     return (
+        
         <div className={styles.pageContainer}>
 
 
-
+            <Navbar />
             <div className={styles.mainCarousel}>
                 <div className={styles.imagePlaceholderLarge}>🖼️</div>
                 <div className={styles.carouselDots}>

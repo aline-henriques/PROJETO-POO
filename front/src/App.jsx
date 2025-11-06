@@ -9,15 +9,14 @@ import styles from "./App.module.css";
 function App() {
   return (
     <AuthProvider> 
-      <div className={styles.App}>
-        <Navbar /> 
-        <div className={styles.container}>
-          <Sidebar />
+      
+        
+        
           <main>
             <AppRoutes /> 
           </main>
-        </div>
-      </div>
+      
+      
     </AuthProvider>
   );
 }

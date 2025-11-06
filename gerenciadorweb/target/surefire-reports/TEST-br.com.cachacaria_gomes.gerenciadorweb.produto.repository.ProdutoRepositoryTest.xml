@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="br.com.cachacaria_gomes.gerenciadorweb.cliente.IClienteRepositoryTest" time="5.79" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="br.com.cachacaria_gomes.gerenciadorweb.produto.repository.ProdutoRepositoryTest" time="2.326" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -49,7 +49,7 @@
     <property name="localRepository" value="C:\Users\bruno\.m2\repository"/>
     <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
     <property name="java.io.tmpdir" value="C:\Users\bruno\AppData\Local\Temp\"/>
-    <property name="com.zaxxer.hikari.pool_number" value="1"/>
+    <property name="com.zaxxer.hikari.pool_number" value="3"/>
     <property name="java.version" value="21.0.8"/>
     <property name="user.dir" value="C:\Users\bruno\OneDrive\Área de Trabalho\Gomes Artesanato e cachaçaria\gerenciadorweb"/>
     <property name="os.arch" value="amd64"/>
@@ -67,10 +67,10 @@
     <property name="java.class.version" value="65.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[gerenciadorweb] "/>
   </properties>
-  <testcase name="shouldFindClientByUsuario" classname="br.com.cachacaria_gomes.gerenciadorweb.cliente.IClienteRepositoryTest" time="0.629">
-    <system-out><![CDATA[2025-10-30T17:16:30.351-03:00  INFO 25224 --- [gerenciadorweb] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [br.com.cachacaria_gomes.gerenciadorweb.cliente.IClienteRepositoryTest]: IClienteRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2025-10-30T17:16:30.371-03:00  INFO 25224 --- [gerenciadorweb] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration br.com.cachacaria_gomes.gerenciadorweb.GerenciadorwebApplication for test class br.com.cachacaria_gomes.gerenciadorweb.cliente.IClienteRepositoryTest
-2025-10-30T17:16:30.374-03:00  INFO 25224 --- [gerenciadorweb] [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+  <testcase name="findAll_DeveRetornarTodosOsProdutos" classname="br.com.cachacaria_gomes.gerenciadorweb.produto.repository.ProdutoRepositoryTest" time="0.243">
+    <system-out><![CDATA[2025-10-30T17:16:44.028-03:00  INFO 25224 --- [gerenciadorweb] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [br.com.cachacaria_gomes.gerenciadorweb.produto.repository.ProdutoRepositoryTest]: ProdutoRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-10-30T17:16:44.087-03:00  INFO 25224 --- [gerenciadorweb] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration br.com.cachacaria_gomes.gerenciadorweb.GerenciadorwebApplication for test class br.com.cachacaria_gomes.gerenciadorweb.produto.repository.ProdutoRepositoryTest
+2025-10-30T17:16:44.090-03:00  INFO 25224 --- [gerenciadorweb] [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -81,27 +81,26 @@
 
  :: Spring Boot ::                (v3.5.6)
 
-2025-10-30T17:16:30.489-03:00  INFO 25224 --- [gerenciadorweb] [           main] b.c.c.g.cliente.IClienteRepositoryTest   : Starting IClienteRepositoryTest using Java 21.0.8 with PID 25224 (started by bruno in C:\Users\bruno\OneDrive\Área de Trabalho\Gomes Artesanato e cachaçaria\gerenciadorweb)
-2025-10-30T17:16:30.492-03:00  INFO 25224 --- [gerenciadorweb] [           main] b.c.c.g.cliente.IClienteRepositoryTest   : The following 1 profile is active: "test"
-2025-10-30T17:16:30.897-03:00  INFO 25224 --- [gerenciadorweb] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-10-30T17:16:31.003-03:00  INFO 25224 --- [gerenciadorweb] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 92 ms. Found 3 JPA repository interfaces.
-2025-10-30T17:16:31.437-03:00  INFO 25224 --- [gerenciadorweb] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-10-30T17:16:31.630-03:00  INFO 25224 --- [gerenciadorweb] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
-2025-10-30T17:16:31.685-03:00  INFO 25224 --- [gerenciadorweb] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-10-30T17:16:31.943-03:00  INFO 25224 --- [gerenciadorweb] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-10-30T17:16:31.997-03:00  INFO 25224 --- [gerenciadorweb] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-10-30T17:16:32.563-03:00  INFO 25224 --- [gerenciadorweb] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@573f2e67
-2025-10-30T17:16:32.567-03:00  INFO 25224 --- [gerenciadorweb] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-10-30T17:16:32.688-03:00  WARN 25224 --- [gerenciadorweb] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-10-30T17:16:32.801-03:00  INFO 25224 --- [gerenciadorweb] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+2025-10-30T17:16:44.180-03:00  INFO 25224 --- [gerenciadorweb] [           main] b.c.c.g.p.r.ProdutoRepositoryTest        : Starting ProdutoRepositoryTest using Java 21.0.8 with PID 25224 (started by bruno in C:\Users\bruno\OneDrive\Área de Trabalho\Gomes Artesanato e cachaçaria\gerenciadorweb)
+2025-10-30T17:16:44.181-03:00  INFO 25224 --- [gerenciadorweb] [           main] b.c.c.g.p.r.ProdutoRepositoryTest        : The following 1 profile is active: "test"
+2025-10-30T17:16:44.511-03:00  INFO 25224 --- [gerenciadorweb] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-30T17:16:44.557-03:00  INFO 25224 --- [gerenciadorweb] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 3 JPA repository interfaces.
+2025-10-30T17:16:44.743-03:00  INFO 25224 --- [gerenciadorweb] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-30T17:16:44.748-03:00  INFO 25224 --- [gerenciadorweb] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-30T17:16:44.765-03:00  INFO 25224 --- [gerenciadorweb] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-30T17:16:44.766-03:00  INFO 25224 --- [gerenciadorweb] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2025-10-30T17:16:44.966-03:00  INFO 25224 --- [gerenciadorweb] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@3546439b
+2025-10-30T17:16:44.969-03:00  INFO 25224 --- [gerenciadorweb] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2025-10-30T17:16:44.998-03:00  WARN 25224 --- [gerenciadorweb] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-30T17:16:45.003-03:00  INFO 25224 --- [gerenciadorweb] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
 	Database driver: undefined/unknown
 	Database version: 18.0
 	Autocommit mode: undefined/unknown
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-10-30T17:16:34.177-03:00  INFO 25224 --- [gerenciadorweb] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-30T17:16:45.304-03:00  INFO 25224 --- [gerenciadorweb] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: 
     set client_min_messages = WARNING
 Hibernate: 
@@ -203,277 +202,231 @@ Hibernate:
        add constraint FK119hsng2b457yhlpp87pucpwh 
        foreign key (id) 
        references tb_produtos
-2025-10-30T17:16:34.376-03:00  INFO 25224 --- [gerenciadorweb] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-10-30T17:16:35.419-03:00  INFO 25224 --- [gerenciadorweb] [           main] b.c.c.g.cliente.IClienteRepositoryTest   : Started IClienteRepositoryTest in 5.046 seconds (process running for 13.916)
-Hibernate: 
-    select
-        cm1_0.cpf,
-        cm1_0.bairro,
-        cm1_0.cep,
-        cm1_0.cidade,
-        cm1_0.created_at,
-        cm1_0.data_nascimento,
-        cm1_0.email,
-        cm1_0.estado,
-        cm1_0.nome_completo,
-        cm1_0.numero,
-        cm1_0.role,
-        cm1_0.rua,
-        cm1_0.senha,
-        cm1_0.usuario 
-    from
-        tb_clientes cm1_0
-Hibernate: 
-    select
-        cm1_0.cpf,
-        cm1_0.bairro,
-        cm1_0.cep,
-        cm1_0.cidade,
-        cm1_0.created_at,
-        cm1_0.data_nascimento,
-        cm1_0.email,
-        cm1_0.estado,
-        cm1_0.nome_completo,
-        cm1_0.numero,
-        cm1_0.role,
-        cm1_0.rua,
-        cm1_0.senha,
-        cm1_0.usuario 
-    from
-        tb_clientes cm1_0 
-    where
-        cm1_0.cpf=?
+2025-10-30T17:16:45.590-03:00  INFO 25224 --- [gerenciadorweb] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-30T17:16:45.835-03:00  INFO 25224 --- [gerenciadorweb] [           main] b.c.c.g.p.r.ProdutoRepositoryTest        : Started ProdutoRepositoryTest in 1.746 seconds (process running for 24.332)
 Hibernate: 
     insert 
     into
-        tb_clientes
-        (bairro, cep, cidade, created_at, data_nascimento, email, estado, nome_completo, numero, role, rua, senha, usuario, cpf) 
+        tb_produtos
+        (avaliacao_geral, categoria, nome, preco, quantidade_em_estoque, id) 
     values
-        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        tb_bebidas
+        (avaliacao_sommelier, envelhecimento, madeira_envelhecimento, origem, teor_alcoolico, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        tb_produtos
+        (avaliacao_geral, categoria, nome, preco, quantidade_em_estoque, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        tb_bebidas
+        (avaliacao_sommelier, envelhecimento, madeira_envelhecimento, origem, teor_alcoolico, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        produto_model_fotos_urls
+        (produto_model_id, fotos_urls) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        produto_model_fotos_urls
+        (produto_model_id, fotos_urls) 
+    values
+        (?, ?)
 Hibernate: 
     select
-        cm1_0.cpf,
-        cm1_0.bairro,
-        cm1_0.cep,
-        cm1_0.cidade,
-        cm1_0.created_at,
-        cm1_0.data_nascimento,
-        cm1_0.email,
-        cm1_0.estado,
-        cm1_0.nome_completo,
-        cm1_0.numero,
-        cm1_0.role,
-        cm1_0.rua,
-        cm1_0.senha,
-        cm1_0.usuario 
+        pm1_0.id,
+        case 
+            when pm1_1.id is not null 
+                then 1 
+            when pm1_2.id is not null 
+                then 2 
+        end,
+        pm1_0.avaliacao_geral,
+        pm1_0.categoria,
+        pm1_0.nome,
+        pm1_0.preco,
+        pm1_0.quantidade_em_estoque,
+        pm1_1.avaliacao_artesao,
+        pm1_1.dimensoes,
+        pm1_1.material_principal,
+        pm1_1.peso_kg,
+        pm1_1.tipo_artesanato,
+        pm1_2.avaliacao_sommelier,
+        pm1_2.envelhecimento,
+        pm1_2.madeira_envelhecimento,
+        pm1_2.origem,
+        pm1_2.teor_alcoolico 
     from
-        tb_clientes cm1_0 
-    where
-        cm1_0.usuario=?
+        tb_produtos pm1_0 
+    left join
+        tb_artesanatos pm1_1 
+            on pm1_0.id=pm1_1.id 
+    left join
+        tb_bebidas pm1_2 
+            on pm1_0.id=pm1_2.id
 ]]></system-out>
   </testcase>
-  <testcase name="shouldFindClientByCpf" classname="br.com.cachacaria_gomes.gerenciadorweb.cliente.IClienteRepositoryTest" time="0.034">
+  <testcase name="save_DevePersistirProduto" classname="br.com.cachacaria_gomes.gerenciadorweb.produto.repository.ProdutoRepositoryTest" time="0.024"/>
+  <testcase name="findById_DeveRetornarProduto" classname="br.com.cachacaria_gomes.gerenciadorweb.produto.repository.ProdutoRepositoryTest" time="0.065">
     <system-out><![CDATA[Hibernate: 
-    select
-        cm1_0.cpf,
-        cm1_0.bairro,
-        cm1_0.cep,
-        cm1_0.cidade,
-        cm1_0.created_at,
-        cm1_0.data_nascimento,
-        cm1_0.email,
-        cm1_0.estado,
-        cm1_0.nome_completo,
-        cm1_0.numero,
-        cm1_0.role,
-        cm1_0.rua,
-        cm1_0.senha,
-        cm1_0.usuario 
-    from
-        tb_clientes cm1_0
-Hibernate: 
-    select
-        cm1_0.cpf,
-        cm1_0.bairro,
-        cm1_0.cep,
-        cm1_0.cidade,
-        cm1_0.created_at,
-        cm1_0.data_nascimento,
-        cm1_0.email,
-        cm1_0.estado,
-        cm1_0.nome_completo,
-        cm1_0.numero,
-        cm1_0.role,
-        cm1_0.rua,
-        cm1_0.senha,
-        cm1_0.usuario 
-    from
-        tb_clientes cm1_0 
-    where
-        cm1_0.cpf=?
+    insert 
+    into
+        tb_produtos
+        (avaliacao_geral, categoria, nome, preco, quantidade_em_estoque, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
 Hibernate: 
     insert 
     into
-        tb_clientes
-        (bairro, cep, cidade, created_at, data_nascimento, email, estado, nome_completo, numero, role, rua, senha, usuario, cpf) 
+        tb_bebidas
+        (avaliacao_sommelier, envelhecimento, madeira_envelhecimento, origem, teor_alcoolico, id) 
     values
-        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        (?, ?, ?, ?, ?, ?)
 Hibernate: 
-    select
-        cm1_0.cpf,
-        cm1_0.bairro,
-        cm1_0.cep,
-        cm1_0.cidade,
-        cm1_0.created_at,
-        cm1_0.data_nascimento,
-        cm1_0.email,
-        cm1_0.estado,
-        cm1_0.nome_completo,
-        cm1_0.numero,
-        cm1_0.role,
-        cm1_0.rua,
-        cm1_0.senha,
-        cm1_0.usuario 
-    from
-        tb_clientes cm1_0 
-    where
-        cm1_0.cpf=?
+    insert 
+    into
+        produto_model_fotos_urls
+        (produto_model_id, fotos_urls) 
+    values
+        (?, ?)
 ]]></system-out>
   </testcase>
-  <testcase name="shouldReturnNullWhenUsuarioNotFound" classname="br.com.cachacaria_gomes.gerenciadorweb.cliente.IClienteRepositoryTest" time="0.027">
+  <testcase name="findByCategoria_DeveRetornarApenasCachacas" classname="br.com.cachacaria_gomes.gerenciadorweb.produto.repository.ProdutoRepositoryTest" time="0.077">
     <system-out><![CDATA[Hibernate: 
-    select
-        cm1_0.cpf,
-        cm1_0.bairro,
-        cm1_0.cep,
-        cm1_0.cidade,
-        cm1_0.created_at,
-        cm1_0.data_nascimento,
-        cm1_0.email,
-        cm1_0.estado,
-        cm1_0.nome_completo,
-        cm1_0.numero,
-        cm1_0.role,
-        cm1_0.rua,
-        cm1_0.senha,
-        cm1_0.usuario 
-    from
-        tb_clientes cm1_0
-Hibernate: 
-    select
-        cm1_0.cpf,
-        cm1_0.bairro,
-        cm1_0.cep,
-        cm1_0.cidade,
-        cm1_0.created_at,
-        cm1_0.data_nascimento,
-        cm1_0.email,
-        cm1_0.estado,
-        cm1_0.nome_completo,
-        cm1_0.numero,
-        cm1_0.role,
-        cm1_0.rua,
-        cm1_0.senha,
-        cm1_0.usuario 
-    from
-        tb_clientes cm1_0 
-    where
-        cm1_0.cpf=?
+    insert 
+    into
+        tb_produtos
+        (avaliacao_geral, categoria, nome, preco, quantidade_em_estoque, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
 Hibernate: 
     insert 
     into
-        tb_clientes
-        (bairro, cep, cidade, created_at, data_nascimento, email, estado, nome_completo, numero, role, rua, senha, usuario, cpf) 
+        tb_bebidas
+        (avaliacao_sommelier, envelhecimento, madeira_envelhecimento, origem, teor_alcoolico, id) 
     values
-        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        tb_produtos
+        (avaliacao_geral, categoria, nome, preco, quantidade_em_estoque, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        tb_bebidas
+        (avaliacao_sommelier, envelhecimento, madeira_envelhecimento, origem, teor_alcoolico, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        tb_produtos
+        (avaliacao_geral, categoria, nome, preco, quantidade_em_estoque, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        tb_bebidas
+        (avaliacao_sommelier, envelhecimento, madeira_envelhecimento, origem, teor_alcoolico, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        produto_model_fotos_urls
+        (produto_model_id, fotos_urls) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        produto_model_fotos_urls
+        (produto_model_id, fotos_urls) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        produto_model_fotos_urls
+        (produto_model_id, fotos_urls) 
+    values
+        (?, ?)
 Hibernate: 
     select
-        cm1_0.cpf,
-        cm1_0.bairro,
-        cm1_0.cep,
-        cm1_0.cidade,
-        cm1_0.created_at,
-        cm1_0.data_nascimento,
-        cm1_0.email,
-        cm1_0.estado,
-        cm1_0.nome_completo,
-        cm1_0.numero,
-        cm1_0.role,
-        cm1_0.rua,
-        cm1_0.senha,
-        cm1_0.usuario 
+        pm1_0.id,
+        case 
+            when pm1_1.id is not null 
+                then 1 
+            when pm1_2.id is not null 
+                then 2 
+        end,
+        pm1_0.avaliacao_geral,
+        pm1_0.categoria,
+        pm1_0.nome,
+        pm1_0.preco,
+        pm1_0.quantidade_em_estoque,
+        pm1_1.avaliacao_artesao,
+        pm1_1.dimensoes,
+        pm1_1.material_principal,
+        pm1_1.peso_kg,
+        pm1_1.tipo_artesanato,
+        pm1_2.avaliacao_sommelier,
+        pm1_2.envelhecimento,
+        pm1_2.madeira_envelhecimento,
+        pm1_2.origem,
+        pm1_2.teor_alcoolico 
     from
-        tb_clientes cm1_0 
+        tb_produtos pm1_0 
+    left join
+        tb_artesanatos pm1_1 
+            on pm1_0.id=pm1_1.id 
+    left join
+        tb_bebidas pm1_2 
+            on pm1_0.id=pm1_2.id 
     where
-        cm1_0.usuario=?
+        pm1_0.categoria=?
 ]]></system-out>
   </testcase>
-  <testcase name="shouldReturnNullWhenCpfNotFound" classname="br.com.cachacaria_gomes.gerenciadorweb.cliente.IClienteRepositoryTest" time="0.02">
+  <testcase name="delete_DeveRemoverProduto" classname="br.com.cachacaria_gomes.gerenciadorweb.produto.repository.ProdutoRepositoryTest" time="0.078">
     <system-out><![CDATA[Hibernate: 
-    select
-        cm1_0.cpf,
-        cm1_0.bairro,
-        cm1_0.cep,
-        cm1_0.cidade,
-        cm1_0.created_at,
-        cm1_0.data_nascimento,
-        cm1_0.email,
-        cm1_0.estado,
-        cm1_0.nome_completo,
-        cm1_0.numero,
-        cm1_0.role,
-        cm1_0.rua,
-        cm1_0.senha,
-        cm1_0.usuario 
-    from
-        tb_clientes cm1_0
-Hibernate: 
-    select
-        cm1_0.cpf,
-        cm1_0.bairro,
-        cm1_0.cep,
-        cm1_0.cidade,
-        cm1_0.created_at,
-        cm1_0.data_nascimento,
-        cm1_0.email,
-        cm1_0.estado,
-        cm1_0.nome_completo,
-        cm1_0.numero,
-        cm1_0.role,
-        cm1_0.rua,
-        cm1_0.senha,
-        cm1_0.usuario 
-    from
-        tb_clientes cm1_0 
-    where
-        cm1_0.cpf=?
+    insert 
+    into
+        tb_produtos
+        (avaliacao_geral, categoria, nome, preco, quantidade_em_estoque, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
 Hibernate: 
     insert 
     into
-        tb_clientes
-        (bairro, cep, cidade, created_at, data_nascimento, email, estado, nome_completo, numero, role, rua, senha, usuario, cpf) 
+        tb_bebidas
+        (avaliacao_sommelier, envelhecimento, madeira_envelhecimento, origem, teor_alcoolico, id) 
     values
-        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        (?, ?, ?, ?, ?, ?)
 Hibernate: 
-    select
-        cm1_0.cpf,
-        cm1_0.bairro,
-        cm1_0.cep,
-        cm1_0.cidade,
-        cm1_0.created_at,
-        cm1_0.data_nascimento,
-        cm1_0.email,
-        cm1_0.estado,
-        cm1_0.nome_completo,
-        cm1_0.numero,
-        cm1_0.role,
-        cm1_0.rua,
-        cm1_0.senha,
-        cm1_0.usuario 
-    from
-        tb_clientes cm1_0 
-    where
-        cm1_0.cpf=?
+    insert 
+    into
+        produto_model_fotos_urls
+        (produto_model_id, fotos_urls) 
+    values
+        (?, ?)
 ]]></system-out>
   </testcase>
 </testsuite>

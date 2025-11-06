@@ -1,7 +1,6 @@
 /* Container da Página */
 .pageContainer {
     width: 100%;
-    max-width: 1200px; /* Largura máxima do conteúdo central */
     margin: 0 auto;
     font-family: Arial, sans-serif;
 }
