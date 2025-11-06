@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: br.com.cachacaria_gomes.gerenciadorweb.cliente.ClienteControllerTest
--------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.417 s -- in br.com.cachacaria_gomes.gerenciadorweb.cliente.ClienteControllerTest

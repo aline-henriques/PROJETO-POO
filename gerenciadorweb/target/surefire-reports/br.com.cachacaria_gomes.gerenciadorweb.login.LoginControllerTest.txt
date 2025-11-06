@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: br.com.cachacaria_gomes.gerenciadorweb.login.LoginControllerTest
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.349 s -- in br.com.cachacaria_gomes.gerenciadorweb.login.LoginControllerTest
