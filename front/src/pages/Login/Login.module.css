@@ -1,0 +1,121 @@
+.containerLogin {
+  display: flex;
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+  gap: 2rem;
+}
+
+.containerLogin img {
+  width: 45%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.formularioLogin h1,
+.formularioLogin p,
+.formularioLogin a {
+  color: var(--brown-dark);
+}
+.formularioLogin a {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.formularioLogin h1{
+    font-size: 3rem;
+}
+
+.formularioLogin {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--yellow-main);
+  color: var(--white);
+  justify-items: center;
+  padding: 1.5rem;
+}
+
+.space {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.space a {
+  cursor: pointer;
+}
+
+.linkCadastreSe {
+  text-decoration: underline;
+  color: var(--brown-dark);
+}
+
+.spaceBox {
+  display: flex;
+  flex: 1;
+  gap: 1rem;
+}
+
+.spaceBox input {
+  width: 15%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form h3 {
+  padding-top: 2rem;
+}
+
+.inputWrite {
+  margin-top: 0.2rem;
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  outline: none;
+  caret-color: var(--brown-dark);
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+form input:focus {
+  border: 1px solid var(--brown-dark);
+  box-shadow: 0 0 0 2px rgba(146, 66, 60, 0.2);
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.loginButton {
+  background-color: var(--yellow-main);
+  color: var(--brown-dark);
+  border: 1px solid var(--brown-dark);
+  cursor: pointer;
+  border-radius: 1rem;
+  transition: all ease 0.2s;
+  padding: 1rem;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.loginButton:hover {
+  background-color: var(--brown-dark);
+  color: var(--yellow-main);
+  border: 1px solid var(--brown-dark);
+  scale: 1.03;
+}

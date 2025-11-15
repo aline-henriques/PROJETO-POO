@@ -8,7 +8,7 @@ import GestaoProd from "../pages/GestaoProdutos/GestaoProd";
 import PainelClientes from "../pages/PainelClientes/PainelClientes"; 
 import GestaoClientes from "../pages/GestaoClientes/GestaoClientes";
 import GestaoPedidos from "../pages/GestaoPedidos/GestaoPedidos";
-import DetalhePedido from "../pages/DetalhePedido/DetalhePedido";
+
 
 import PainelProdutos from "../pages/PainelProdutos/PainelProdutos";
 import CadastroCliente from "../pages/CadastrarCliente/CadCliente"; 
@@ -47,7 +47,6 @@ function AppRoutes() {
 
         {/* PEDIDOS */}
         <Route path="/GestaoPedidos" element={<GestaoPedidos />} />
-        <Route path="/pedidos/:id" element={<DetalhePedido />} />  
       
       </Route>
 

@@ -1,52 +1,93 @@
 import React, { useEffect, useState } from "react";
-import styles from "./GestaoPedidos.module.css";
-import { useNavigate } from "react-router-dom";
+import PedidoTable from "../../components/PedidoTable/PedidoTable";
+import { pedidoService } from "../../Services/pedidoService.mock";
+import NavbarAdmin from "../../components/NavbarAdmin/NavbarAdmin";
+import Sidebar from "../../components/sidebar/sidebar";
+import styles from "./GestaoPedidos.module.css"
 
-function GestaoPedidos() {
+export default function GestaoPedidos() {
   const [pedidos, setPedidos] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
+  const [filtros, setFiltros] = useState({
+    statusPagamento: "",
+    statusEnvio: "",
+    statusEntrega: "",
+    cliente: "",
+  });
+
+  const carregarPedidos = async () => {
+    try {
+      const data = await pedidoService.listar(filtros);
+      setPedidos(data);
+    } catch (err) {
+      console.error("Erro ao carregar pedidos:", err);
+    }
+  };
 
   useEffect(() => {
     carregarPedidos();
-  }, []);
-
-  const carregarPedidos = () => {
-    setLoading(true);
-
-    fetch("http://localhost:8080/pedidos/")
-      .then((res) => res.ok ? res.json() : Promise.reject("Erro ao buscar pedidos"))
-      .then((data) => {
-        setPedidos(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Erro ao carregar pedidos:", err);
-        setLoading(false);
-      });
-  };
-
-  const verDetalhes = (id) => {
-    navigate(`/pedidos/${id}`);
-  };
+  }, [filtros]);
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.titulo}>Gestão de Pedidos</h2>
-
-      {loading && <p>Carregando pedidos...</p>}
-      {!loading && pedidos.length === 0 && <p>Nenhum pedido encontrado.</p>}
-
-      {/* Placeholder */}
-      {!loading && pedidos.length > 0 && (
-        <div>
-          <p>Total de pedidos: {pedidos.length}</p>
-          <p>Tabela de pedidos será exibida aqui com a opção de ver detalhes.</p>
-          <PedidoTable pedidos={pedidos} onViewDetails={verDetalhes} />
+    
+    
+    <div>
+      <NavbarAdmin />
+      <div className={styles.heroSection}>
+        <div className={styles.sidebar}>
+          <Sidebar  />
         </div>
-      )}
-    </div>
+        <div className={styles.content}>
+          <h1>Gestão de Pedidos</h1>
+          <div style={{ marginBottom: "20px" }}>
+            <input
+              placeholder="Cliente..."
+              value={filtros.cliente}
+              onChange={(e) => setFiltros({ ...filtros, cliente: e.target.value })}
+            />
+
+            <select
+              value={filtros.statusPagamento}
+              onChange={(e) =>
+                setFiltros({ ...filtros, statusPagamento: e.target.value })
+              }
+            >
+              <option value="">Pagamento</option>
+              <option value="AGUARDANDO">Aguardando</option>
+              <option value="PAGO">Pago</option>
+              <option value="RECUSADO">Recusado</option>
+            </select>
+
+            <select
+              value={filtros.statusEnvio}
+              onChange={(e) =>
+                setFiltros({ ...filtros, statusEnvio: e.target.value })
+              }
+            >
+              <option value="">Envio</option>
+              <option value="PREPARANDO">Preparando</option>
+              <option value="ENVIADO">Enviado</option>
+            </select>
+
+            <select
+              value={filtros.statusEntrega}
+              onChange={(e) =>
+                setFiltros({ ...filtros, statusEntrega: e.target.value })
+              }
+            >
+              <option value="">Entrega</option>
+              <option value="EM_TRANSITO">Em Trânsito</option>
+              <option value="ENTREGUE">Entregue</option>
+            </select>
+
+            <button onClick={carregarPedidos}>Filtrar</button>
+          </div>
+
+          <PedidoTable pedidos={pedidos} />
+
+        </div>
+      </div>
+    </div>  
+  
+      
   );
 }
-
-export default GestaoPedidos;

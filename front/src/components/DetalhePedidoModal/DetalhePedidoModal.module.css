@@ -1,0 +1,44 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal {
+  width: 520px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.btnFechar {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #e2e8f0;
+  border: none;
+  font-size: 14px;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.secao {
+  margin-top: 20px;
+}
+
+.historico {
+  background: #f1f5f9;
+  padding: 12px;
+  border-radius: 10px;
+}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./CadCliente.module.css";
-import { useNavigate } from "react-router-dom"; 
-
+import { useNavigate } from "react-router-dom";
+import LogoCachacaria from "../../assets/Fotos/LogoCachacaria.png";
 
 function CadCliente() {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ function CadCliente() {
     cidade: "",
     estado: "",
     cep: "",
-    confirmarSenha: "", 
+    confirmarSenha: "",
   });
 
   const validarCPF = (cpf) => {
@@ -49,42 +49,41 @@ function CadCliente() {
   };
 
   const validarEnderecoViaCEP = async (cep, dados) => {
-  try {
-    const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-    const info = await res.json();
+    try {
+      const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+      const info = await res.json();
 
-    if (info.erro) {
-      return "CEP não encontrado. Verifique e tente novamente.";
+      if (info.erro) {
+        return "CEP não encontrado. Verifique e tente novamente.";
+      }
+
+      // Verifica se cidade e estado batem
+      if (
+        info.localidade.toLowerCase() !== dados.cidade.toLowerCase() ||
+        info.uf.toLowerCase() !== dados.estado.toLowerCase()
+      ) {
+        return "O CEP não corresponde à cidade ou estado informados.";
+      }
+
+      return null; // Endereço válido
+    } catch {
+      return "Erro ao validar o CEP. Tente novamente mais tarde.";
+    }
+  };
+
+  const validarIdadeMinima = (dataNascimento, idadeMinima = 18) => {
+    const hoje = new Date();
+    const nascimento = new Date(dataNascimento);
+    let idade = hoje.getFullYear() - nascimento.getFullYear();
+    const mes = hoje.getMonth() - nascimento.getMonth();
+
+    if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+      idade--;
     }
 
-    // Verifica se cidade e estado batem
-    if (
-      info.localidade.toLowerCase() !== dados.cidade.toLowerCase() ||
-      info.uf.toLowerCase() !== dados.estado.toLowerCase()
-    ) {
-      return "O CEP não corresponde à cidade ou estado informados.";
-    }
+    return idade >= idadeMinima;
+  };
 
-    return null; // Endereço válido
-  } catch {
-    return "Erro ao validar o CEP. Tente novamente mais tarde.";
-  }
-};
-
-const validarIdadeMinima = (dataNascimento, idadeMinima = 18) => {
-  const hoje = new Date();
-  const nascimento = new Date(dataNascimento);
-  let idade = hoje.getFullYear() - nascimento.getFullYear();
-  const mes = hoje.getMonth() - nascimento.getMonth();
-
-  if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
-    idade--;
-  }
-
-  return idade >= idadeMinima;
-};
-
-  
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -107,7 +106,9 @@ const validarIdadeMinima = (dataNascimento, idadeMinima = 18) => {
     }
 
     if (!validarSenha(formData.senha)) {
-      setError("A senha deve conter no mínimo 8 caracteres, incluindo letras maiúsculas, minúsculas e números.");
+      setError(
+        "A senha deve conter no mínimo 8 caracteres, incluindo letras maiúsculas, minúsculas e números."
+      );
       setLoading(false);
       return;
     }
@@ -122,19 +123,22 @@ const validarIdadeMinima = (dataNascimento, idadeMinima = 18) => {
       setError("Você precisa ter pelo menos 18 anos para se cadastrar.");
       setLoading(false);
       return;
-}
+    }
 
-    const mensagemErroEndereco = await validarEnderecoViaCEP(formData.cep, formData);
-      if (mensagemErroEndereco) {
-        setError(mensagemErroEndereco);
-        setLoading(false);
+    const mensagemErroEndereco = await validarEnderecoViaCEP(
+      formData.cep,
+      formData
+    );
+    if (mensagemErroEndereco) {
+      setError(mensagemErroEndereco);
+      setLoading(false);
       return;
-}
+    }
 
     const { confirmarSenha: _, ...payload } = formData;
-    
+
     try {
-      const res = await fetch("http://localhost:8080/clientes/", { 
+      const res = await fetch("http://localhost:8080/clientes/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -144,60 +148,183 @@ const validarIdadeMinima = (dataNascimento, idadeMinima = 18) => {
 
       if (res.ok) {
         setSuccess(true);
-        alert("Cadastro realizado com sucesso! Você será redirecionado para o login.");
+        alert(
+          "Cadastro realizado com sucesso! Você será redirecionado para o login."
+        );
         setTimeout(() => {
-             navigate("/login");
+          navigate("/login");
         }, 1500);
       } else {
         const errorMessage = await res.text();
-        setError(errorMessage); 
+        setError(errorMessage);
       }
     } catch (err) {
       setLoading(false);
       console.error("Erro na conexão:", err);
-      setError("Erro de conexão com o servidor. Verifique se o back-end está ativo.");
+      setError(
+        "Erro de conexão com o servidor. Verifique se o back-end está ativo."
+      );
     }
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.titulo}>Cadastro de Cliente</h1>
-      <form onSubmit={handleSubmit} className={styles.formulario}>
-        
-        {/* Se houver erro, exibe a mensagem do back-end ou a de validação de senha */}
-        {error && <p className={styles.erro}>{error}</p>}
-        {success && <p className={styles.sucesso}>Cadastro efetuado! Redirecionando...</p>}
+    <div className={styles.containerCad}>
+      
+      <img src={LogoCachacaria} alt="imagem chamativa da logo" onClick={() => navigate("/")}/>
+      
+      <div className={styles.formularioCad}>
 
-        {/* 1. Dados Pessoais */}
-        <input type="text" name="nomeCompleto" placeholder="Nome Completo" value={formData.nomeCompleto} onChange={handleChange} required className={styles.input} />
-        <input type="text" name="usuario" placeholder="Nome de Usuário" value={formData.usuario} onChange={handleChange} required className={styles.input} />
-        <input type="email" name="email" placeholder="E-mail" value={formData.email} onChange={handleChange} required className={styles.input} />
-        <input type="text" name="cpf" placeholder="CPF (apenas números)" value={formData.cpf} onChange={handleChange} maxLength="11" required className={styles.input} />
-        
-        <label className={styles.label}>Data de Nascimento:</label>
-        <input type="date" name="dataNascimento" value={formData.dataNascimento} onChange={handleChange} required className={styles.input} />
-        <input type="password" name="senha" placeholder="Senha (Mín. 8 caracteres, letras + números)" value={formData.senha} onChange={handleChange} required className={styles.input} />
-        <input type="password" name="confirmarSenha" placeholder="Confirmar Senha" value={formData.confirmarSenha} onChange={handleChange} required className={styles.input} />
+        <h1>Cadastro de Cliente</h1>
 
-        {/* 2. Endereço */}
-        <h2 className={styles.subtitulo}>Endereço</h2>
-        <input type="text" name="rua" placeholder="Rua" value={formData.rua} onChange={handleChange} required className={styles.input} />
-        <input type="text" name="numero" placeholder="Número" value={formData.numero} onChange={handleChange} required className={styles.input} />
-        <input type="text" name="bairro" placeholder="Bairro" value={formData.bairro} onChange={handleChange} required className={styles.input} />
-        <input type="text" name="cidade" placeholder="Cidade" value={formData.cidade} onChange={handleChange} required className={styles.input} />
-        <input type="text" name="estado" placeholder="Estado (Ex: SP)" value={formData.estado} onChange={handleChange} maxLength="2" required className={styles.input} />
-        <input type="text" name="cep" placeholder="CEP (apenas números)" value={formData.cep} onChange={handleChange} maxLength="8" required className={styles.input} />
-        
-        {/* 3. Senhas */}
+        <div className={styles.spaceCad}>
+          <p>Você já está registrado no site?</p>
+          <a onClick={() => navigate('/login')} className={styles.linkLogin}>Faça Login</a>
+        </div>
 
-        <button 
-          type="submit" 
-          className={styles.botao}
-          disabled={loading}
-        >
-          {loading ? "Cadastrando..." : "Cadastrar"}
-        </button>
-      </form>
+        <form onSubmit={handleSubmit}>
+          {/* Se houver erro, exibe a mensagem do back-end ou a de validação de senha */}
+          {error && <p className={styles.erro}>{error}</p>}
+          {success && (
+            <p className={styles.sucesso}>
+              Cadastro efetuado! Redirecionando...
+            </p>
+          )}
+
+          {/* 1. Dados Pessoais */}
+          <input
+            type="text"
+            name="nomeCompleto"
+            placeholder="Nome Completo"
+            value={formData.nomeCompleto}
+            onChange={handleChange}
+            className={styles.inputWrite}
+            required
+          />
+          <input
+            type="text"
+            name="usuario"
+            placeholder="Nome de Usuário"
+            value={formData.usuario}
+            onChange={handleChange}
+            required
+            className={styles.inputWrite}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="E-mail"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className={styles.inputWrite}
+          />
+          <input
+            type="text"
+            name="cpf"
+            placeholder="CPF (apenas números)"
+            value={formData.cpf}
+            onChange={handleChange}
+            maxLength="11"
+            required
+            className={styles.inputWrite}
+          />
+
+         
+          <input
+            type="password"
+            name="senha"
+            placeholder="Senha (Mín. 8 caracteres, letras + números)"
+            value={formData.senha}
+            onChange={handleChange}
+            required
+            className={styles.inputWrite}
+          />
+          <input
+            type="password"
+            name="confirmarSenha"
+            placeholder="Confirmar Senha"
+            value={formData.confirmarSenha}
+            onChange={handleChange}
+            required
+            className={styles.inputWrite}
+          />
+
+          <label className={styles.subtitulo}>Data de Nascimento:</label>
+          <input
+            type="date"
+            name="dataNascimento"
+            value={formData.dataNascimento}
+            onChange={handleChange}
+            required
+            className={styles.inputWrite}
+          />
+
+          {/* 2. Endereço */}
+          <h2 className={styles.subtitulo}>Endereço</h2>
+          <input
+            type="text"
+            name="rua"
+            placeholder="Rua"
+            value={formData.rua}
+            onChange={handleChange}
+            required
+            className={styles.inputWrite}
+          />
+          <input
+            type="text"
+            name="numero"
+            placeholder="Número"
+            value={formData.numero}
+            onChange={handleChange}
+            required
+            className={styles.inputWrite}
+          />
+          <input
+            type="text"
+            name="bairro"
+            placeholder="Bairro"
+            value={formData.bairro}
+            onChange={handleChange}
+            required
+            className={styles.inputWrite}
+          />
+          <input
+            type="text"
+            name="cidade"
+            placeholder="Cidade"
+            value={formData.cidade}
+            onChange={handleChange}
+            required
+            className={styles.inputWrite}
+          />
+          <input
+            type="text"
+            name="estado"
+            placeholder="Estado (Ex: PE)"
+            value={formData.estado}
+            onChange={handleChange}
+            maxLength="2"
+            required
+            className={styles.inputWrite}
+          />
+          <input
+            type="text"
+            name="cep"
+            placeholder="CEP (apenas números)"
+            value={formData.cep}
+            onChange={handleChange}
+            maxLength="8"
+            required
+            className={styles.inputWrite}
+          />
+
+          {/* 3. Senhas */}
+
+          <button type="submit" className={styles.cadButton} disabled={loading}>
+            {loading ? "Cadastrando..." : "Cadastrar"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

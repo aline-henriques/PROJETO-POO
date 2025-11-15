@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+  padding: 0.94rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--yellow-main);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.titlle {
+  font-size: 3.5rem;
+  color: var(--brown-dark);
+  overflow: hidden;
+}
