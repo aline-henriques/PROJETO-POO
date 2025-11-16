@@ -17,8 +17,8 @@ public class FiltroPedidoDTO {
     private LocalDateTime dataFinal;
     
     private String clienteId;
-    private LocalDateTime valorMinimo;
-    private LocalDateTime valorMaximo;
+    private BigDecimal valorMinimo;
+    private BigDecimal valorMaximo;
     private int pagina = 0;
     private int tamanho = 10;
 
@@ -31,10 +31,10 @@ public class FiltroPedidoDTO {
     public void setDataFinal(LocalDateTime dataFinal) { this.dataFinal = dataFinal; }
     public String getClienteId() { return clienteId; }
     public void setClienteId(String clienteId) { this.clienteId = clienteId; }
-    public LocalDateTime getValorMinimo() { return valorMinimo; }
-    public void setValorMinimo(LocalDateTime valorMinimo) { this.valorMinimo = valorMinimo; }
-    public LocalDateTime getValorMaximo() { return valorMaximo; }
-    public void setValorMaximo(LocalDateTime valorMaximo) { this.valorMaximo = valorMaximo; }
+    public BigDecimal getValorMinimo() { return valorMinimo; }
+    public void setValorMinimo(BigDecimal valorMinimo) { this.valorMinimo = valorMinimo; }
+    public BigDecimal getValorMaximo() { return valorMaximo; }
+    public void setValorMaximo(BigDecimal valorMaximo) { this.valorMaximo = valorMaximo; }
     public int getPagina() { return pagina; }
     public void setPagina(int pagina) { this.pagina = pagina; }
     public int getTamanho() { return tamanho; }
