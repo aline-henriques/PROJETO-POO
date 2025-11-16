@@ -1,10 +1,10 @@
+// src/components/PedidoTable/PedidoTable.jsx
 import React, { useState } from "react";
-import styles from "../TabelaProdutos/ProdutoTable.module.css";
+import styles from "./PedidoTable.module.css"; 
 import PedidoModal from "../PedidosModal/PedidosModal";
 import DetalhePedidoModal from "../DetalhePedidoModal/DetalhePedidoModal";
-import { pedidoService } from "../../Services/pedidoService.mock";
 
-export default function PedidoTable({ pedidos }) {
+export default function PedidoTable({ pedidos, onAtualizar }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [detalheOpen, setDetalheOpen] = useState(false);
   const [pedidoSelecionado, setPedidoSelecionado] = useState(null);
@@ -16,7 +16,7 @@ export default function PedidoTable({ pedidos }) {
   };
 
   const abrirDetalhes = (id) => {
-    setPedidoIdDetalhe(id);   
+    setPedidoIdDetalhe(id);
     setDetalheOpen(true);
   };
 
@@ -25,46 +25,55 @@ export default function PedidoTable({ pedidos }) {
       <table className={styles.tabela}>
         <thead>
           <tr className={styles.theadTr}>
-            <th className={styles.th}>ID</th>
-            <th className={styles.th}>Cliente</th>
-            <th className={styles.th}>Data</th>
-            <th className={styles.th}>Valor Total</th>
-            <th className={styles.th}>Status Pagamento</th>
-            <th className={styles.th}>Status Envio</th>
-            <th className={styles.th}>Entrega</th>
-            <th className={styles.th}>Ações</th>
+            <th>ID</th>
+            <th>Cliente (CPF)</th>
+            <th>Data</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Ações</th>
           </tr>
         </thead>
 
         <tbody>
-          {pedidos.map((p) => (
-            <tr key={p.id} className={styles.tr}>
-              <td className={styles.td}>{p.id}</td>
-              <td className={styles.td}>{p.cliente?.nome}</td>
-              <td className={styles.td}>{new Date(p.data).toLocaleDateString()}</td>
-              <td className={styles.td}>R$ {p.valorTotal}</td>
-              <td className={styles.td}>{p.statusPagamento}</td>
-              <td className={styles.td}>{p.statusEnvio}</td>
-              <td className={styles.td}>{p.statusEntrega}</td>
+          {pedidos.map((p) => {
+            const cpf = p.clienteId.replace(
+              /(\d{3})(\d{3})(\d{3})(\d{2})/,
+              "$1.$2.$3-$4"
+            );
 
-              <td className={styles.td}>
-                <button
-                  className={styles.botaoEditar}
-                  onClick={() => abrirDetalhes(p.id)}
-                >
-                  Ver Detalhes
-                </button>
+            const data = new Date(p.dataCriacao).toLocaleString("pt-BR");
 
-                <button
-                  onClick={() => abrirModal(p)}
-                  className={styles.botaoEditar}
-                  style={{ marginLeft: "8px", background: "#1e90ff" }}
-                >
-                  Atualizar Status
-                </button>
-              </td>
-            </tr>
-          ))}
+            return (
+              <tr key={p.id}>
+                <td>{p.id.slice(0, 8)}...</td>
+                <td>{cpf}</td>
+                <td>{data}</td>
+                <td>R$ {p.valorTotal.toFixed(2)}</td>
+
+                <td>
+                  <span className={`${styles.badge} ${styles[`status-${p.status}`]}`}>
+                    {p.status.replace("_", " ")}
+                  </span>
+                </td>
+
+                <td>
+                  <button
+                    className={`${styles.botao} ${styles.btnDetalhes}`}
+                    onClick={() => abrirDetalhes(p.id)}
+                  >
+                    Ver Detalhes
+                  </button>
+
+                  <button
+                    className={`${styles.botao} ${styles.btnStatus}`}
+                    onClick={() => abrirModal(p)}
+                  >
+                    Atualizar Status
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
 
@@ -79,18 +88,7 @@ export default function PedidoTable({ pedidos }) {
           isOpen={modalOpen}
           onClose={() => setModalOpen(false)}
           pedido={pedidoSelecionado}
-          onSaveStatus={async (campo, novoStatus) => {
-            await pedidoService.atualizarStatus(
-              pedidoSelecionado.id,
-              campo,
-              novoStatus
-            );
-            alert("Status atualizado");
-          }}
-          onCancelOrder={async (motivo) => {
-            await pedidoService.cancelar(pedidoSelecionado.id, motivo);
-            alert("Pedido cancelado");
-          }}
+          onSave={onAtualizar}
         />
       )}
     </>

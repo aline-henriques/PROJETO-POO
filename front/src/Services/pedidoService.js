@@ -1,11 +1,19 @@
+// src/Services/pedidoService.js
 import axios from "axios";
 
 const API_URL = "http://localhost:8080/pedidos";
 
 export const pedidoService = {
   listar: async (filtros = {}) => {
-    const params = new URLSearchParams(filtros).toString();
-    const { data } = await axios.get(`${API_URL}?${params}`);
+    // remove chaves com valores vazios/null
+    const clean = Object.fromEntries(
+      Object.entries(filtros).filter(([k, v]) => v !== "" && v != null)
+    );
+
+    const query = new URLSearchParams(clean).toString();
+    const url = query ? `${API_URL}?${query}` : API_URL;
+
+    const { data } = await axios.get(url);
     return data;
   },
 
@@ -15,14 +23,29 @@ export const pedidoService = {
   },
 
   atualizarStatus: async (id, status) => {
-    const { data } = await axios.put(`${API_URL}/${id}/status`, status);
+    const { data } = await axios.put(`${API_URL}/${id}/status`, {
+      novoStatus: status,
+    });
     return data;
   },
 
   cancelar: async (id, motivo) => {
-    const { data } = await axios.patch(`${API_URL}/${id}/cancelar`, {
-      motivo,
+    await axios.patch(`${API_URL}/${id}/cancelar`, {
+      motivoCancelamento: motivo,
     });
-    return data;
+  },
+
+  listarHistorico: async (pedidoId) => {
+    const { data } = await axios.get(`${API_URL}/${pedidoId}/historico`);
+
+    return data.map((item) => ({
+      ...item,
+      data:
+        item.data ||
+        item.dataHora ||
+        item.timestamp ||
+        item.dataAlteracao ||
+        null,
+    }));
   },
 };

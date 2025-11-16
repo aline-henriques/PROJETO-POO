@@ -1,75 +1,93 @@
-import styles from "./DetalhePedidoModal.module.css";
+// src/components/DetalhePedidoModal/DetalhePedidoModal.jsx
 import { useEffect, useState } from "react";
-import { pedidoService } from "../../Services/pedidoService.mock";
+import styles from "./DetalhePedidoModal.module.css";
+import { pedidoService } from "../../Services/pedidoService";
 
 export default function DetalhePedidoModal({ isOpen, onClose, pedidoId }) {
   const [pedido, setPedido] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [historico, setHistorico] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const carregar = async () => {
-    const data = await pedidoService.buscarPorId(pedidoId);
-    setPedido(data);
-    setLoading(false);
+    try {
+      setLoading(true);
+
+      const p = await pedidoService.buscarPorId(pedidoId);
+      let h = await pedidoService.listarHistorico(pedidoId);
+
+      // Normalizando histórico
+      h = (h || []).map((item) => ({
+        ...item,
+        data: item.dataHoraRegistro,
+        texto:
+          item.observacao ||
+          `${item.statusAnterior} → ${item.novoStatus}`,
+      }));
+
+      setPedido(p);
+      setHistorico(h);
+    } catch (err) {
+      console.error("Erro ao carregar detalhe do pedido:", err);
+      alert("Erro ao carregar detalhes do pedido.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
-    if (!isOpen) return;
-
-    setLoading(true); 
-    setPedido(null); 
-
-    if (pedidoId) carregar();
+    if (isOpen && pedidoId) carregar();
+    if (!isOpen) {
+      setPedido(null);
+      setHistorico([]);
+      setLoading(false);
+    }
   }, [isOpen, pedidoId]);
 
-  if (!isOpen) return null;
-  if (loading) return null;
+  if (!isOpen || loading || !pedido) return null;
 
   return (
     <div className={styles.overlay}>
       <div className={styles.modal}>
-        <h2>Detalhes do Pedido #{pedido.id}</h2>
+        <button className={styles.btnFechar} onClick={onClose}>X</button>
 
-        <button className={styles.btnFechar} onClick={onClose}>
-          X
-        </button>
+        <h2>Pedido #{pedido.id}</h2>
 
-        <div className={styles.secao}>
-          <h3>Cliente</h3>
+        <h3>Cliente</h3>
+        <p><b>CPF:</b> {pedido.clienteId}</p>
+
+        {pedido.enderecoEntrega && (
           <p>
-            <b>Nome:</b> {pedido.cliente.nome}
+            {pedido.enderecoEntrega.logradouro},{' '}
+            {pedido.enderecoEntrega.numero}{' '}
+            {pedido.enderecoEntrega.bairro && `- ${pedido.enderecoEntrega.bairro}`}
           </p>
-          <p>
-            <b>Endereço:</b> {pedido.cliente.endereco?.rua}
-          </p>
-        </div>
+        )}
 
-        <div className={styles.secao}>
-          <h3>Itens</h3>
-          <ul>
-            {pedido.itens.map((item) => (
-              <li key={item.id}>
-                {item.produto.nome} — {item.quantidade}x — R$ {item.preco}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <h3>Itens</h3>
+        <ul className={styles.itensLista}>
+          {pedido.itens.map((item, index) => (
+            <li key={index}>
+              <span>{item.quantidade}x {item.produtoId}</span>
+              <span>R$ {item.precoUnitario.toFixed(2)}</span>
+            </li>
+          ))}
+        </ul>
 
-        <div className={styles.secao}>
-          <h3>Histórico</h3>
-          {pedido.historicoStatus?.length > 0 ? (
-            <ul className={styles.historico}>
-              {pedido.historicoStatus.map((h) => (
-                <li key={h.id}>
+        <h3>Histórico</h3>
+        <ul className={styles.historico}>
+          {historico.length > 0 ? (
+            historico.map((h) => (
+              <li key={h.id}>
+                <div>
                   <b>{new Date(h.data).toLocaleString()}</b>
-                  <br />
-                  {h.campo}: <b>{h.de}</b> → <b>{h.para}</b>
-                </li>
-              ))}
-            </ul>
+                </div>
+                <div>{h.texto}</div>
+              </li>
+            ))
           ) : (
-            <p>Nenhuma alteração registrada.</p>
+            <p>Nenhuma anotação registrada.</p>
           )}
-        </div>
+        </ul>
       </div>
     </div>
   );

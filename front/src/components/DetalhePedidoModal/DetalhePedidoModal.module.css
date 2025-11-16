@@ -1,44 +1,130 @@
+/* ===== Overlay do Modal ===== */
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.55);
-  backdrop-filter: blur(4px);
+  background: rgba(15, 23, 42, 0.55); /* Azul escuro translúcido */
+  backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2000;
 }
 
+/* ===== Container do Modal ===== */
 .modal {
-  width: 520px;
-  max-height: 85vh;
+  width: 560px;
+  max-height: 88vh;
   overflow-y: auto;
-  background: white;
-  padding: 24px;
-  border-radius: 12px;
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 16px;
   position: relative;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+  animation: fadeIn 0.25s ease;
 }
 
+/* ===== Botão Fechar ===== */
 .btnFechar {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 14px;
+  right: 14px;
   background: #e2e8f0;
   border: none;
   font-size: 14px;
   border-radius: 50%;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
-.secao {
-  margin-top: 20px;
+.btnFechar:hover {
+  background: #cbd5e1;
 }
 
+/* ===== Títulos ===== */
+.modal h2 {
+  margin-bottom: 14px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #0f172a;
+}
+
+.modal h3 {
+  margin-top: 22px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #1e293b;
+}
+
+/* ===== Texto ===== */
+.modal p {
+  margin: 6px 0;
+  color: #334155;
+  line-height: 1.5;
+}
+
+/* ===== Itens do pedido ===== */
+.itensLista {
+  list-style: none;
+  padding-left: 0;
+}
+
+.itensLista li {
+  background: #f8fafc;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+}
+
+/* ===== Histórico ===== */
 .historico {
   background: #f1f5f9;
-  padding: 12px;
-  border-radius: 10px;
+  padding: 14px;
+  border-radius: 12px;
+  margin-top: 12px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.historico li {
+  list-style: none;
+  padding: 10px 12px;
+  background: white;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border-left: 4px solid #64748b;
+  font-size: 0.9rem;
+}
+
+.historico li b {
+  color: #0f172a;
+}
+
+/* ===== Badge para status do histórico ===== */
+.statusBadge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: white;
+  margin-left: 6px;
+}
+
+.status-AGUARDANDO_PAGAMENTO { background: #f59e0b; }
+.status-PAGO { background: #10b981; }
+.status-ENVIADO { background: #3b82f6; }
+.status-ENTREGUE { background: #22c55e; }
+.status-CANCELADO { background: #ef4444; }
+
+/* ===== Animação ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
 }

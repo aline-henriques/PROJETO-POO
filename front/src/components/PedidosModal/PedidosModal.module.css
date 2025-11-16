@@ -1,72 +1,136 @@
+/* ===== Overlay ===== */
 .overlay {
   position: fixed;
   inset: 0;
   background: rgba(15, 23, 42, 0.55);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2000;
 }
 
+/* ===== Container do Modal ===== */
 .modal {
-  width: 520px;
+  width: 480px;
   max-height: 85vh;
   overflow-y: auto;
-  background: white;
-  padding: 24px;
-  border-radius: 12px;
+  background: #ffffff;
+  padding: 26px;
+  border-radius: 16px;
   position: relative;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  animation: fadeIn 0.25s ease;
 }
 
-.select,
-.textarea {
-  width: 100%;
-  padding: 8px;
-  margin: 8px 0 15px 0;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.botaoSalvar {
-  background: #1e90ff;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  width: 100%;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.botaoCancelar {
-  background: #ff4444;
-  color: white;
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
+/* ===== Botão Fechar ===== */
 .btnFechar {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 14px;
+  right: 14px;
   background: #e2e8f0;
   border: none;
   font-size: 14px;
   border-radius: 50%;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
-.historico {
-  background: #f7f7f7;
+.btnFechar:hover {
+  background: #cbd5e1;
+}
+
+/* ===== Títulos ===== */
+.modal h2 {
+  margin-bottom: 18px;
+  font-size: 1.4rem;
+  color: #0f172a;
+}
+
+/* ===== Campo Label ===== */
+.modal label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #475569;
+  margin-top: 12px;
+  display: block;
+}
+
+/* ===== Select e Textarea ===== */
+.select,
+.textarea {
+  width: 100%;
   padding: 10px;
-  border-radius: 6px;
-  max-height: 160px;
-  overflow-y: auto;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  transition: border 0.2s;
+}
+
+.select:focus,
+.textarea:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+/* ===== Botões ===== */
+.botaoSalvar,
+.botaoCancelar {
+  width: 100%;
+  padding: 12px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s;
+  font-weight: bold;
+}
+
+/* Botão salvar */
+.botaoSalvar {
+  background: #2563eb;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.botaoSalvar:hover:not(.disabled) {
+  background: #1e40af;
+}
+
+/* Botão cancelar */
+.botaoCancelar {
+  background: #dc2626;
+  color: white;
+}
+
+.botaoCancelar:hover:not(.disabled) {
+  background: #b91c1c;
+}
+
+/* Estado desabilitado */
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===== Alerta ===== */
+.alerta {
+  background: #fef2f2;
+  border-left: 4px solid #dc2626;
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  color: #991b1b;
+  font-size: 0.9rem;
+}
+
+/* ===== Animação ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
 }

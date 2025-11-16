@@ -1,93 +1,129 @@
+// src/pages/GestaoPedidos/GestaoPedidos.jsx
 import React, { useEffect, useState } from "react";
 import PedidoTable from "../../components/PedidoTable/PedidoTable";
-import { pedidoService } from "../../Services/pedidoService.mock";
+import { pedidoService } from "../../Services/pedidoService";
 import NavbarAdmin from "../../components/NavbarAdmin/NavbarAdmin";
 import Sidebar from "../../components/sidebar/sidebar";
-import styles from "./GestaoPedidos.module.css"
+import styles from "./GestaoPedidos.module.css";
 
 export default function GestaoPedidos() {
   const [pedidos, setPedidos] = useState([]);
   const [filtros, setFiltros] = useState({
-    statusPagamento: "",
-    statusEnvio: "",
-    statusEntrega: "",
-    cliente: "",
+    status: "",
+    dataInicio: "",
+    dataFim: "",
+    clienteId: "",
+    valorMin: "",
+    valorMax: "",
   });
 
-  const carregarPedidos = async () => {
+  const carregar = async () => {
     try {
       const data = await pedidoService.listar(filtros);
-      setPedidos(data);
+      setPedidos(data.content || data);
     } catch (err) {
       console.error("Erro ao carregar pedidos:", err);
     }
   };
 
+  // agora recebe id explicitamente
+  const atualizarPedido = async (id, acao, valor) => {
+  try {
+    if (acao === "status") {
+      await pedidoService.atualizarStatus(id, valor);
+    } else if (acao === "cancelar") {
+      await pedidoService.cancelar(id, valor);
+    } else {
+      throw new Error("Ação desconhecida");
+    }
+
+    await carregar();
+  } catch (err) {
+    console.error("Erro ao atualizar pedido:", err);
+    alert("Erro ao atualizar o pedido.");
+  }
+};
+
   useEffect(() => {
-    carregarPedidos();
+    carregar();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filtros]);
 
   return (
-    
-    
     <div>
       <NavbarAdmin />
+
       <div className={styles.heroSection}>
-        <div className={styles.sidebar}>
-          <Sidebar  />
-        </div>
+        <Sidebar />
+
         <div className={styles.content}>
           <h1>Gestão de Pedidos</h1>
-          <div style={{ marginBottom: "20px" }}>
+
+          <div style={{ marginBottom: "20px", display: "flex", gap: "10px" }}>
             <input
-              placeholder="Cliente..."
-              value={filtros.cliente}
-              onChange={(e) => setFiltros({ ...filtros, cliente: e.target.value })}
+              placeholder="CPF do cliente"
+              value={filtros.clienteId}
+              onChange={(e) =>
+                setFiltros({ ...filtros, clienteId: e.target.value })
+              }
             />
 
             <select
-              value={filtros.statusPagamento}
+              value={filtros.status}
               onChange={(e) =>
-                setFiltros({ ...filtros, statusPagamento: e.target.value })
+                setFiltros({ ...filtros, status: e.target.value })
               }
             >
-              <option value="">Pagamento</option>
-              <option value="AGUARDANDO">Aguardando</option>
+              <option value="">Status</option>
+              <option value="AGUARDANDO_PAGAMENTO">Aguardando Pagamento</option>
               <option value="PAGO">Pago</option>
-              <option value="RECUSADO">Recusado</option>
-            </select>
-
-            <select
-              value={filtros.statusEnvio}
-              onChange={(e) =>
-                setFiltros({ ...filtros, statusEnvio: e.target.value })
-              }
-            >
-              <option value="">Envio</option>
-              <option value="PREPARANDO">Preparando</option>
               <option value="ENVIADO">Enviado</option>
-            </select>
-
-            <select
-              value={filtros.statusEntrega}
-              onChange={(e) =>
-                setFiltros({ ...filtros, statusEntrega: e.target.value })
-              }
-            >
-              <option value="">Entrega</option>
-              <option value="EM_TRANSITO">Em Trânsito</option>
               <option value="ENTREGUE">Entregue</option>
+              <option value="CANCELADO">Cancelado</option>
             </select>
 
-            <button onClick={carregarPedidos}>Filtrar</button>
+            <input
+              type="date"
+              value={filtros.dataInicio}
+              onChange={(e) =>
+                setFiltros({ ...filtros, dataInicio: e.target.value })
+              }
+            />
+
+            <input
+              type="date"
+              value={filtros.dataFim}
+              onChange={(e) =>
+                setFiltros({ ...filtros, dataFim: e.target.value })
+              }
+            />
+
+            <input
+              type="number"
+              step="0.01"
+              placeholder="Valor mínimo"
+              value={filtros.valorMin}
+              onChange={(e) =>
+                setFiltros({ ...filtros, valorMin: e.target.value })
+              }
+            />
+
+            <input
+              type="number"
+              step="0.01"
+              placeholder="Valor máximo"
+              value={filtros.valorMax}
+              onChange={(e) =>
+                setFiltros({ ...filtros, valorMax: e.target.value })
+              }
+            />
+
+            <button onClick={carregar}>Filtrar</button>
           </div>
 
-          <PedidoTable pedidos={pedidos} />
-
+          <PedidoTable pedidos={pedidos} onAtualizar={atualizarPedido} />
         </div>
       </div>
-    </div>  
-  
-      
+    </div>
   );
 }
