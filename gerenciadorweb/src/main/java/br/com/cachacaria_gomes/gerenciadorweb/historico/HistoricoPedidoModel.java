@@ -1,3 +1,5 @@
+// br.com.cachacaria_gomes.gerenciadorweb.historico.HistoricoPedidoModel.java
+
 package br.com.cachacaria_gomes.gerenciadorweb.historico;
 
 import jakarta.persistence.*;
@@ -12,7 +14,6 @@ import java.util.UUID;
 @Entity
 @Table(name = "tb_historico_pedidos")
 @NoArgsConstructor
-@AllArgsConstructor
 public class HistoricoPedidoModel {
 
     @Id
@@ -24,16 +25,18 @@ public class HistoricoPedidoModel {
     @CreationTimestamp
     private LocalDateTime dataHoraRegistro;
 
+    private String statusAnterior; 
+
     private String novoStatus; 
 
     private String responsavel; 
 
-
     @Column(columnDefinition = "TEXT")
     private String observacao; 
 
-    public HistoricoPedidoModel(UUID pedidoId, String novoStatus, String responsavel, String observacao) {
+    public HistoricoPedidoModel(UUID pedidoId, String statusAnterior, String novoStatus, String responsavel, String observacao) {
         this.pedidoId = pedidoId;
+        this.statusAnterior = statusAnterior;
         this.novoStatus = novoStatus;
         this.responsavel = responsavel;
         this.observacao = observacao;
