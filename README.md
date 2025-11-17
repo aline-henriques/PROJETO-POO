@@ -138,7 +138,6 @@ Como instalar e montar o ambiente corretamente para execução do programa em su
 * Thyalles Araújo Campos
 
 ---
-
 ## 📜 | Licença
 
 Este projeto está licenciado sob a licença MIT.
