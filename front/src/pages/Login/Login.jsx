@@ -24,8 +24,17 @@ function Login() {
 
   return (
     <div className={styles.containerLogin}>
-      <img src={LogoCachacaria} alt="imagem chamativa da logo" onClick={() => navigate("/")}/>
-      <div className={styles.formularioLogin}>
+
+  {/* LADO ESQUERDO */}
+  <div className={styles.containerLoginLeft}>
+    <img 
+      src={LogoCachacaria} 
+      alt="Logo Gomes Cachaçaria"
+      onClick={() => navigate("/")}
+    />
+  </div>
+
+  <div className={styles.formularioLogin}>
         <h1>Olá! Bem vindo</h1>
         <div className={styles.space}>
           <h4>Ainda não tem uma conta?</h4>

@@ -27,43 +27,77 @@ function Navbar() {
         </div>
       </div>
       <div className={styles.upperSection}>
-        {!isLoggedIn ? (
-          <>
-            <button className={styles.minhaConta}>
-              <Link to="/login">Login</Link>
-            </button>
+  {!isLoggedIn ? (
+  <>
 
-            <button className={styles.loginButton}>
-              <Link to="/cadastro">Cadastre-se</Link>
-            </button>
-          </>
-        ) : (
-          <>
-            <div className={styles.dropdown}>
-              <button className={styles.minhaConta}>Minha Conta ⌄</button>
+    {/* BLOCO GRANDE IGUAL AO FIGMA */}
+    <div className={styles.loginBox}>
+      <div className={styles.loginIcon}>👤</div>
 
-              <div className={styles.dropdownMenu}>
-                <Link to="/perfil">Editar Perfil</Link>
-                <Link to="/historico">Histórico de Pedidos</Link>
-                <Link to="/favoritos">Favoritados</Link>
-                <button
-                  className={styles.logoutBtn}
-                  onClick={() => {
-                    logout(); // 1. limpa localStorage e auth
-                    navigate("/"); // 2. redireciona (opcional, seu logout já redireciona)
-                  }}
-                >
-                  Sair
-                </button>
-              </div>
-            </div>
+      <div className={styles.loginTexts}>
+        <p className={styles.loginTitle}>Minha Conta</p>
 
-            <button className={styles.carrinho}>
-              🛒<span className={styles.badge}>0</span>
-            </button>
-          </>
-        )}
+        <div className={styles.loginActions}>
+          <Link to="/login" className={styles.loginLink}>Entre</Link>
+          <span className={styles.loginDivider}> ou </span>
+          <Link to="/cadastro" className={styles.loginLink}>Cadastre-se</Link>
+        </div>
       </div>
+    </div>
+
+    {/* LINHA INFERIOR — Favoritos + Clube */}
+    <div className={styles.subActions}>
+      <button className={styles.secondaryBtn}>❤️ Favoritos</button>
+      <button className={styles.secondaryBtn}>🎁 Clube</button>
+    </div>
+
+  </>
+  ) : (
+    <>
+      {/* LINHA SUPERIOR — Minha Conta + Carrinho */}
+      <div className={styles.accountRow}>
+        <div className={styles.dropdown}>
+          <button className={styles.minhaConta}>
+  <span className={styles.userIcon}>👤</span>
+  Minha Conta ⌄
+</button>
+
+
+          <div className={styles.dropdownMenu}>
+            <Link to="/perfil">Editar Perfil</Link>
+            <Link to="/historico">Histórico de Pedidos</Link>
+            <Link to="/favoritos">Favoritados</Link>
+
+            <button
+              className={styles.logoutBtn}
+              onClick={() => {
+                logout();
+                navigate("/");
+              }}
+            >
+              Sair
+            </button>
+          </div>
+        </div>
+
+        <button className={styles.carrinho}>
+          🛒<span className={styles.badge}>0</span>
+        </button>
+      </div>
+
+      {/* LINHA INFERIOR — Favoritos + Clube */}
+      <div className={styles.subActions}>
+        <button className={styles.secondaryBtn}>
+          ❤️ Favoritos
+        </button>
+
+        <button className={styles.secondaryBtn}>
+          🎁 Clube
+        </button>
+      </div>
+    </>
+  )}
+</div>
     </div>
   );
 

@@ -168,165 +168,190 @@ function CadCliente() {
   };
 
   return (
-    <div className={styles.containerCad}>
-      
-      <img src={LogoCachacaria} alt="imagem chamativa da logo" onClick={() => navigate("/")}/>
-      
-      <div className={styles.formularioCad}>
+  <div className={styles.containerCad}>
 
-        <h1>Cadastro de Cliente</h1>
+    {/* ==== LADO ESQUERDO ==== */}
+    <div className={styles.containerCadLeft}>
+      <img
+        src={LogoCachacaria}
+        alt="Logo"
+        onClick={() => navigate("/")}
+      />
+    </div>
 
-        <div className={styles.spaceCad}>
-          <p>Você já está registrado no site?</p>
-          <a onClick={() => navigate('/login')} className={styles.linkLogin}>Faça Login</a>
-        </div>
+    {/* ==== LADO DIREITO ==== */}
+    <div className={styles.formularioCad}>
 
-        <form onSubmit={handleSubmit}>
-          {/* Se houver erro, exibe a mensagem do back-end ou a de validação de senha */}
-          {error && <p className={styles.erro}>{error}</p>}
-          {success && (
-            <p className={styles.sucesso}>
-              Cadastro efetuado! Redirecionando...
-            </p>
-          )}
+      <h1>Cadastro de Cliente</h1>
 
-          {/* 1. Dados Pessoais */}
-          <input
-            type="text"
-            name="nomeCompleto"
-            placeholder="Nome Completo"
-            value={formData.nomeCompleto}
-            onChange={handleChange}
-            className={styles.inputWrite}
-            required
-          />
-          <input
-            type="text"
-            name="usuario"
-            placeholder="Nome de Usuário"
-            value={formData.usuario}
-            onChange={handleChange}
-            required
-            className={styles.inputWrite}
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="E-mail"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className={styles.inputWrite}
-          />
-          <input
-            type="text"
-            name="cpf"
-            placeholder="CPF (apenas números)"
-            value={formData.cpf}
-            onChange={handleChange}
-            maxLength="11"
-            required
-            className={styles.inputWrite}
-          />
+      <div className={styles.spaceCad}>
+        <p>Você já está registrado no site?</p>
+        <a onClick={() => navigate('/login')} className={styles.linkLogin}>
+          Faça Login
+        </a>
+      </div>
 
-         
-          <input
-            type="password"
-            name="senha"
-            placeholder="Senha (Mín. 8 caracteres, letras + números)"
-            value={formData.senha}
-            onChange={handleChange}
-            required
-            className={styles.inputWrite}
-          />
-          <input
-            type="password"
-            name="confirmarSenha"
-            placeholder="Confirmar Senha"
-            value={formData.confirmarSenha}
-            onChange={handleChange}
-            required
-            className={styles.inputWrite}
-          />
+      <form onSubmit={handleSubmit}>
 
-          <label className={styles.subtitulo}>Data de Nascimento:</label>
-          <input
-            type="date"
-            name="dataNascimento"
-            value={formData.dataNascimento}
-            onChange={handleChange}
-            required
-            className={styles.inputWrite}
-          />
+        {/* ERROS E SUCESSO */}
+        {error && <p className={styles.erro}>{error}</p>}
+        {success && (
+          <p className={styles.sucesso}>
+            Cadastro efetuado! Redirecionando...
+          </p>
+        )}
 
-          {/* 2. Endereço */}
-          <h2 className={styles.subtitulo}>Endereço</h2>
-          <input
-            type="text"
-            name="rua"
-            placeholder="Rua"
-            value={formData.rua}
-            onChange={handleChange}
-            required
-            className={styles.inputWrite}
-          />
-          <input
-            type="text"
-            name="numero"
-            placeholder="Número"
-            value={formData.numero}
-            onChange={handleChange}
-            required
-            className={styles.inputWrite}
-          />
-          <input
-            type="text"
-            name="bairro"
-            placeholder="Bairro"
-            value={formData.bairro}
-            onChange={handleChange}
-            required
-            className={styles.inputWrite}
-          />
-          <input
-            type="text"
-            name="cidade"
-            placeholder="Cidade"
-            value={formData.cidade}
-            onChange={handleChange}
-            required
-            className={styles.inputWrite}
-          />
-          <input
-            type="text"
-            name="estado"
-            placeholder="Estado (Ex: PE)"
-            value={formData.estado}
-            onChange={handleChange}
-            maxLength="2"
-            required
-            className={styles.inputWrite}
-          />
-          <input
-            type="text"
-            name="cep"
-            placeholder="CEP (apenas números)"
-            value={formData.cep}
-            onChange={handleChange}
-            maxLength="8"
-            required
-            className={styles.inputWrite}
-          />
+        {/* DADOS PESSOAIS */}
+        <input
+          type="text"
+          name="nomeCompleto"
+          placeholder="Nome Completo"
+          value={formData.nomeCompleto}
+          onChange={handleChange}
+          className={styles.inputWrite}
+          required
+        />
 
+        <input
+          type="text"
+          name="usuario"
+          placeholder="Nome de Usuário"
+          value={formData.usuario}
+          onChange={handleChange}
+          required
+          className={styles.inputWrite}
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="E-mail"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          className={styles.inputWrite}
+        />
+
+        <input
+          type="text"
+          name="cpf"
+          placeholder="CPF (apenas números)"
+          value={formData.cpf}
+          onChange={handleChange}
+          maxLength="11"
+          required
+          className={styles.inputWrite}
+        />
+
+        <input
+          type="password"
+          name="senha"
+          placeholder="Senha (Mín. 8 caracteres, letras + números)"
+          value={formData.senha}
+          onChange={handleChange}
+          required
+          className={styles.inputWrite}
+        />
+
+        <input
+          type="password"
+          name="confirmarSenha"
+          placeholder="Confirmar Senha"
+          value={formData.confirmarSenha}
+          onChange={handleChange}
+          required
+          className={styles.inputWrite}
+        />
+
+        <label className={styles.subtitulo}>Data de Nascimento:</label>
+        <input
+          type="date"
+          name="dataNascimento"
+          value={formData.dataNascimento}
+          onChange={handleChange}
+          required
+          className={styles.inputWrite}
+        />
+
+        {/* ENDEREÇO */}
+        <h2 className={styles.subtitulo}>Endereço</h2>
+
+        <input
+          type="text"
+          name="rua"
+          placeholder="Rua"
+          value={formData.rua}
+          onChange={handleChange}
+          required
+          className={styles.inputWrite}
+        />
+
+        <input
+          type="text"
+          name="numero"
+          placeholder="Número"
+          value={formData.numero}
+          onChange={handleChange}
+          required
+          className={styles.inputWrite}
+        />
+
+        <input
+          type="text"
+          name="bairro"
+          placeholder="Bairro"
+          value={formData.bairro}
+          onChange={handleChange}
+          required
+          className={styles.inputWrite}
+        />
+
+        <input
+          type="text"
+          name="cidade"
+          placeholder="Cidade"
+          value={formData.cidade}
+          onChange={handleChange}
+          required
+          className={styles.inputWrite}
+        />
+
+        <input
+          type="text"
+          name="estado"
+          placeholder="Estado (Ex: PE)"
+          value={formData.estado}
+          onChange={handleChange}
+          maxLength="2"
+          required
+          className={styles.inputWrite}
+        />
+
+        <input
+          type="text"
+          name="cep"
+          placeholder="CEP (apenas números)"
+          value={formData.cep}
+          onChange={handleChange}
+          maxLength="8"
+          required
+          className={styles.inputWrite}
+        />
+
+        {/* BOTÃO */}
+        <button type="submit" className={styles.cadButton} disabled={loading}>
+          {loading ? "Cadastrando..." : "Cadastrar"}
+        </button>
+
+      </form>
+    </div>
+  </div>
+);
           {/* 3. Senhas */}
 
           <button type="submit" className={styles.cadButton} disabled={loading}>
             {loading ? "Cadastrando..." : "Cadastrar"}
           </button>
-        </form>
-      </div>
-    </div>
-  );
 }
 
 export default CadCliente;

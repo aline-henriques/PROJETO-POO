@@ -1,121 +1,147 @@
+/* ======== CONTAINER GERAL ======== */
 .containerLogin {
   display: flex;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   overflow: hidden;
-  gap: 2rem;
 }
 
-.containerLogin img {
-  width: 45%;
-  height: 100%;
+/* LADO ESQUERDO – LOGO (branco) */
+.containerLoginLeft {
+  flex: 1;                 /* ocupa 50% */
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerLoginLeft img {
+  width: 60%;
+  max-width: 350px;
+  height: auto;
   object-fit: contain;
-  cursor: pointer;
 }
 
-.formularioLogin h1,
-.formularioLogin p,
-.formularioLogin a {
-  color: var(--brown-dark);
-}
-.formularioLogin a {
-  cursor: pointer;
-  text-decoration: underline;
-}
-.formularioLogin h1{
-    font-size: 3rem;
-}
-
+/* LADO DIREITO – FORMULÁRIO (amarelo) */
 .formularioLogin {
-  width: 55%;
+  flex: 1;                 /* ocupa 50% */
+  background-color: var(--yellow-main);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--yellow-main);
-  color: var(--white);
-  justify-items: center;
-  padding: 1.5rem;
+
+  padding: 3rem 4rem;
 }
 
+/* TÍTULO */
+.formularioLogin h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+  color: var(--brown-dark);
+  text-align: center;
+}
+
+/* PARTE: “Ainda não tem conta?” */
 .space {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding-top: 1rem;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
 }
 
-.space a {
-  cursor: pointer;
+.space h4 {
+  margin: 0;
+  color: var(--brown-dark);
 }
 
 .linkCadastreSe {
   text-decoration: underline;
+  font-weight: 600;
   color: var(--brown-dark);
+  cursor: pointer;
 }
 
-.spaceBox {
-  display: flex;
-  flex: 1;
-  gap: 1rem;
-}
-
-.spaceBox input {
-  width: 15%;
-}
-
+/* FORM */
 form {
+  width: 100%;
+  max-width: 350px;
   display: flex;
   flex-direction: column;
+  gap: 0.8rem;
 }
 
-form h3 {
-  padding-top: 2rem;
-}
-
+/* INPUTS */
 .inputWrite {
-  margin-top: 0.2rem;
-  padding: 0.7rem 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid transparent;
+  padding: 0.9rem 1rem;
+  border-radius: 0.6rem;
+  border: 1px solid #bbb;
   outline: none;
-  caret-color: var(--brown-dark);
   font-size: 1rem;
-  width: 100%;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-form input:focus {
-  border: 1px solid var(--brown-dark);
-  box-shadow: 0 0 0 2px rgba(146, 66, 60, 0.2);
-}
-
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.loginButton {
-  background-color: var(--yellow-main);
   color: var(--brown-dark);
+}
+
+.inputWrite:focus {
   border: 1px solid var(--brown-dark);
+  box-shadow: 0 0 0 3px rgba(146, 66, 60, 0.25);
+}
+
+/* CHECKBOX + ESQUECEU SENHA */
+.spaceBox {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--brown-dark);
+}
+
+.forgetPassword {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: var(--brown-dark);
   cursor: pointer;
-  border-radius: 1rem;
-  transition: all ease 0.2s;
-  padding: 1rem;
-  font-size: 1.5rem;
-  margin-top: 1rem;
+  text-decoration: underline;
+}
+
+/* BOTÃO */
+.loginButton {
+  margin-top: 0.8rem;
+  padding: 0.9rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--brown-dark);
+  background-color: var(--brown-dark);
+  color: var(--yellow-main);
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.25s;
 }
 
 .loginButton:hover {
-  background-color: var(--brown-dark);
-  color: var(--yellow-main);
-  border: 1px solid var(--brown-dark);
-  scale: 1.03;
+  background-color: var(--yellow-main);
+  color: var(--brown-dark);
+  transform: scale(1.03);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 900px) {
+  .containerLogin {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .containerLoginLeft {
+    width: 100%;
+    padding: 2rem 0;
+  }
+
+  .containerLoginLeft img {
+    width: 45%;
+    max-width: 250px;
+  }
+
+  .formularioLogin {
+    width: 100%;
+    padding: 2rem;
+  }
 }

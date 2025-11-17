@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './HomePage.module.css';
 import Navbar from '../../components/navbar/navbar';
+import CacacasImg from '../../assets/Fotos/CACHAÇAS.png';
 
 export default function HomePage() {
 
@@ -24,7 +25,11 @@ export default function HomePage() {
 
             <Navbar />
             <div className={styles.mainCarousel}>
-                <div className={styles.imagePlaceholderLarge}>🖼️</div>
+                <img 
+                    src={CacacasImg} 
+                    alt="Variedade de cachaças artesanais"
+                    className={styles.imagePlaceholderLarge}
+                />
                 <div className={styles.carouselDots}>
                     <span className={styles.dot}></span>
                     <span className={`${styles.dot} ${styles.activeDot}`}></span>
@@ -33,32 +38,37 @@ export default function HomePage() {
                 </div>
             </div>
 
-            <section className={styles.productSection}>
-                <h2 className={styles.sectionTitle}>OFERTA RELÂMPAGO</h2>
-                <div className={styles.productList}>
-                    <button className={styles.arrow}>{'<'}</button>
-                    {produtosOferta.map((id) => (
-                        <ProductCard key={id} title={`Oferta ${id}`} />
-                    ))}
-                    <button className={styles.arrow}>{'>'}</button>
-                </div>
-            </section>
+            {/* SEÇÕES LADO A LADO */}
+<div className={styles.duasColunas}>
 
-            <section className={styles.productSection}>
-                <h2 className={styles.sectionTitle}>OS MAIS VENDIDOS!</h2>
-                <div className={styles.productList}>
-                    <button className={styles.arrow}>{'<'}</button>
-                    {produtosMaisVendidos.map((id) => (
-                        <ProductCard key={id} title={`Vendidos ${id}`} />
-                    ))}
-                    <button className={styles.arrow}>{'>'}</button>
-                </div>
-                <div className={styles.carouselDots}>
-                    <span className={`${styles.dot} ${styles.activeDot}`}></span>
-                    <span className={styles.dot}></span>
-                    <span className={styles.dot}></span>
-                </div>
-            </section>
+  <section className={styles.productSection}>
+    <h2 className={styles.sectionTitle}>OFERTA RELÂMPAGO</h2>
+    <div className={styles.productList}>
+      <button className={styles.arrow}>{'<'}</button>
+      {produtosOferta.map((id) => (
+        <ProductCard key={id} title={`Oferta ${id}`} />
+      ))}
+      <button className={styles.arrow}>{'>'}</button>
+    </div>
+  </section>
+
+  <section className={styles.productSection}>
+    <h2 className={styles.sectionTitle}>OS MAIS VENDIDOS!</h2>
+    <div className={styles.productList}>
+      <button className={styles.arrow}>{'<'}</button>
+      {produtosMaisVendidos.map((id) => (
+        <ProductCard key={id} title={`Vendidos ${id}`} />
+      ))}
+      <button className={styles.arrow}>{'>'}</button>
+    </div>
+    <div className={styles.carouselDots}>
+      <span className={`${styles.dot} ${styles.activeDot}`}></span>
+      <span className={styles.dot}></span>
+      <span className={styles.dot}></span>
+    </div>
+  </section>
+
+</div>
 
         </div>
     );

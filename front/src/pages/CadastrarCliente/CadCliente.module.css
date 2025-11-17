@@ -1,97 +1,123 @@
-.containerCad{
+/* ======== CONTAINER GERAL ======== */
+.containerCad {
   display: flex;
   width: 100%;
-  height: 90vh;
-  overflow: hidden;
-  gap: 2rem;
+  height: auto;          /* deixa crescer naturalmente */
+  min-height: 100vh;     /* garante tamanho mínimo da tela */
+  background-color: #fff;
 }
 
-.containerCad img {
-  width: 45%;
-  height: 100%;
-  object-fit:contain;
+/* ======== LADO ESQUERDO ======== */
+.containerCadLeft {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.containerCadLeft img {
+  width: 60%;
+  max-width: 380px;
+  height: auto;
+  object-fit: contain;
   cursor: pointer;
 }
 
-.formularioCad h1,.formularioCad p,.formularioCad a{
-    color: var(--brown-dark);
-}
-.formularioCad a{
-    cursor: pointer;
-    text-decoration: underline;
-}
-.spaceCad {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    color: var(--brown-dark);
-}
-
+/* ======== LADO DIREITO ======== */
 .formularioCad {
-  width: 55%;
+  width: 50%;
+  background-color: var(--yellow-main);
+  padding: 3rem 4rem;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--yellow-main);
-  color: var(--white);
-  padding: 1.5rem;
-  overflow-y: auto;
+
+  overflow-y: visible;   /* deixa a rolagem ser do body, não da coluna */
 }
 
+/* ======== TÍTULOS ======== */
 .formularioCad h1 {
+  font-size: 2.2rem;
+  color: var(--brown-dark);
   margin-bottom: 1rem;
-  font-size: 1.8rem;
 }
 
-.inputWrite {
-  margin-bottom: 0.5rem;
-  padding: 0.6rem 0.8rem;
-  border-radius: 0.5rem;
-  border: 1px solid transparent;
-  outline: none;
-  caret-color: var(--brown-dark);
-  font-size: 1rem;
+.spaceCad {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--brown-dark);
+  margin-bottom: 1.2rem;
+}
+
+.linkLogin {
+  text-decoration: underline;
+  color: var(--brown-dark);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ======== FORM ======== */
+form {
   width: 100%;
-  box-sizing: border-box;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
 }
 
-form input:focus {
-  border: 1px solid var(--brown-dark);
-  box-shadow: 0 0 0 2px rgba(146, 66, 60, 0.2);
+/* ======== INPUTS ======== */
+.inputWrite {
+  padding: 0.9rem 1rem;
+  border-radius: 0.6rem;
+  border: 1px solid #bbb;
+  outline: none;
+  font-size: 1rem;
+  color: var(--brown-dark);
+  background-color: #fff;
 }
 
+.inputWrite:focus {
+  border-color: var(--brown-dark);
+  box-shadow: 0 0 0 3px rgba(146, 66, 60, 0.25);
+}
 
+/* ======== SUBTÍTULOS ======== */
 .subtitulo {
   font-size: 1.2rem;
+  font-weight: 600;
   color: var(--brown-dark);
-  margin-top: 0.8rem;
-  margin-bottom: 0.3rem;
+  margin-top: 1rem;
   border-left: 4px solid var(--brown-dark);
   padding-left: 8px;
 }
 
-
+/* ======== BOTÃO ======== */
 .cadButton {
-  font-size: 1rem;
-  color: var(--yellow-main);
+  margin-top: 0.8rem;
+  padding: 0.9rem;
+  border-radius: 0.8rem;
+
   background-color: var(--brown-dark);
-  border-radius: 0.5rem;
-  border: 1px solid var(--yellow-main);
-  padding: 0.6rem 0;
+  color: var(--yellow-main);
+  border: 1px solid var(--brown-dark);
+
+  font-size: 1.2rem;
+  font-weight: bold;
   cursor: pointer;
-  transition: 0.3s ease;
-  margin-top: 0.7rem;
-  width: 100%;
+  transition: 0.25s;
 }
 
 .cadButton:hover {
   background-color: var(--yellow-main);
   color: var(--brown-dark);
-  border: 1px solid var(--brown-dark);
-  scale: 1.03;
+  border-color: var(--brown-dark);
+  transform: scale(1.03);
 }
 
-/* ======== MENSAGENS ======== */
+/* ======== ALERTAS ======== */
 .erro {
   color: #a00;
   background-color: #ffe0e0;
@@ -112,9 +138,23 @@ form input:focus {
   font-weight: bold;
 }
 
-/* ======== FORM ======== */
-form {
-  width: 75%;
-  display: flex;
-  flex-direction: column;
+/* ======== RESPONSIVO ======== */
+@media (max-width: 900px) {
+  .containerCad {
+    flex-direction: column;
+  }
+
+  .containerCadLeft,
+  .formularioCad {
+    width: 100%;
+  }
+
+  .containerCadLeft img {
+    width: 65%;
+    max-width: 300px;
+  }
+
+  .formularioCad {
+    padding: 2rem;
+  }
 }
