@@ -108,6 +108,10 @@ Visualize nossas Issues através do link:
 ## 📥 | Instalação e Execução
 Como instalar e montar o ambiente corretamente para execução do programa em sua máquina?
 
+Acesse o PDF de guia de instalação e execução do projeto, orienta passo a passo como instalar, configurar e executar tanto o backend quanto o frontend do projeto!
+
+[📌 GUIA DE INSTALAÇÃO E EXECUÇÃO](https://docs.google.com/document/d/10T48Fn5ZvZ3-ljsz50hgBJYxcXaxm62FoqLuZnDRvjk/edit?usp=drivesdk)
+
 ***
  
 ## 🔗 | Links Úteis 
