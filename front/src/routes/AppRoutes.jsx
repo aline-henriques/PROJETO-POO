@@ -14,6 +14,7 @@ import PainelProdutos from "../pages/PainelProdutos/PainelProdutos";
 import CadastroCliente from "../pages/CadastrarCliente/CadCliente"; 
 import Login from "../pages/Login/Login";
 import HomePage from "../pages/HomePage/HomePage";
+import GestaoEstoque from "../pages/GestaoEstoque/GestaoEstoque";
 
 function AppRoutes() {
   return (
@@ -40,13 +41,16 @@ function AppRoutes() {
         <Route path="/GestaoClientes" element={<GestaoClientes />} />
 
         {/* PRODUTOS */}
-        <Route path="/GestãoProdutos" element={<GestaoProd />} />
+        <Route path="/GestaoProdutos" element={<GestaoProd />} />
         <Route path="/products" element={<CadProdutos />} />
         <Route path="/PainelProdutos" element={<PainelProdutos />} />
         
 
         {/* PEDIDOS */}
         <Route path="/GestaoPedidos" element={<GestaoPedidos />} />
+
+        {/* ESTOQUE */}
+        <Route path="/GestaoEstoque" element={<GestaoEstoque />} />
       
       </Route>
 

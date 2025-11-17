@@ -1,0 +1,53 @@
+.container {
+  margin-top: 1rem;
+  display: flex;
+  align-items: self-start;
+  gap: 2rem;
+  width: 100%;
+}
+
+.content {
+  flex: 1;
+}
+.titulo {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: var(--cor-texto);
+}
+
+.topBar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.selectFiltro {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--cor-borda);
+  background: var(--cor-card);
+}
+
+.botaoEntrada {
+  padding: 10px 14px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.botaoSaida {
+  padding: 10px 14px;
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.botaoEntrada:hover,
+.botaoSaida:hover {
+  opacity: 0.85;
+}

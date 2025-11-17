@@ -1,5 +1,13 @@
 .container {
-  padding: 1.5rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: self-start;
+  gap: 2rem;
+  width: 100%;
+}
+
+.content {
+  flex: 1;
 }
 
 .titulo {

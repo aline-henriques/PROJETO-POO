@@ -4,7 +4,7 @@ import styles from "./PedidoTable.module.css";
 import PedidoModal from "../PedidosModal/PedidosModal";
 import DetalhePedidoModal from "../DetalhePedidoModal/DetalhePedidoModal";
 
-export default function PedidoTable({ pedidos, onAtualizar }) {
+export default function PedidoTable({ pedidos = [], onAtualizar }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [detalheOpen, setDetalheOpen] = useState(false);
   const [pedidoSelecionado, setPedidoSelecionado] = useState(null);
@@ -35,7 +35,7 @@ export default function PedidoTable({ pedidos, onAtualizar }) {
         </thead>
 
         <tbody>
-          {pedidos.map((p) => {
+          {Array.isArray(pedidos) && pedidos.map((p) => {
             const cpf = p.clienteId.replace(
               /(\d{3})(\d{3})(\d{3})(\d{2})/,
               "$1.$2.$3-$4"

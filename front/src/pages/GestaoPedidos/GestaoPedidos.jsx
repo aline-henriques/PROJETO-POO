@@ -5,9 +5,11 @@ import { pedidoService } from "../../Services/pedidoService";
 import NavbarAdmin from "../../components/NavbarAdmin/NavbarAdmin";
 import Sidebar from "../../components/sidebar/sidebar";
 import styles from "./GestaoPedidos.module.css";
+import NovoPedido from "../../components/NovoPedido/NovoPedido";
 
 export default function GestaoPedidos() {
   const [pedidos, setPedidos] = useState([]);
+  const [novoPedidoOpen, setNovoPedidoOpen] = useState(false);
   const [filtros, setFiltros] = useState({
     status: "",
     dataInicio: "",
@@ -20,34 +22,50 @@ export default function GestaoPedidos() {
   const carregar = async () => {
     try {
       const data = await pedidoService.listar(filtros);
-      setPedidos(data.content || data);
+
+      const lista = Array.isArray(data?.content)
+        ? data.content
+        : Array.isArray(data)
+        ? data
+        : [];
+
+      setPedidos(lista);
     } catch (err) {
       console.error("Erro ao carregar pedidos:", err);
+      setPedidos([]); // evita quebrar o componente
     }
   };
 
-  // agora recebe id explicitamente
   const atualizarPedido = async (id, acao, valor) => {
-  try {
-    if (acao === "status") {
-      await pedidoService.atualizarStatus(id, valor);
-    } else if (acao === "cancelar") {
-      await pedidoService.cancelar(id, valor);
-    } else {
-      throw new Error("Ação desconhecida");
-    }
+    try {
+      console.log(id, valor, acao);
+      if (acao === "status") {
+        await pedidoService.atualizarStatus(id, valor);
+      } else if (acao === "cancelar") {
+        await pedidoService.cancelar(id, valor);
+      } else {
+        throw new Error("Ação desconhecida");
+      }
 
-    await carregar();
-  } catch (err) {
-    console.error("Erro ao atualizar pedido:", err);
-    alert("Erro ao atualizar o pedido.");
-  }
-};
+      await carregar();
+    } catch (err) {
+      console.error("Erro ao atualizar pedido:", err);
+      alert("Erro ao atualizar o pedido.");
+    }
+  };
 
   useEffect(() => {
     carregar();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filtros]);
+
+  const abrirNovoPedido = () => setNovoPedidoOpen(true);
+  const fecharNovoPedido = () => setNovoPedidoOpen(false);
+
+  const aoCriarPedido = async () => {
+    fecharNovoPedido();
+    await carregar(); // atualiza tabela após criar
+  };
 
   return (
     <div>
@@ -58,6 +76,10 @@ export default function GestaoPedidos() {
 
         <div className={styles.content}>
           <h1>Gestão de Pedidos</h1>
+
+          <button className={styles.btnNovoPedido} onClick={abrirNovoPedido}>
+            + Novo Pedido
+          </button>
 
           <div style={{ marginBottom: "20px", display: "flex", gap: "10px" }}>
             <input
@@ -121,9 +143,14 @@ export default function GestaoPedidos() {
             <button onClick={carregar}>Filtrar</button>
           </div>
 
-          <PedidoTable pedidos={pedidos} onAtualizar={atualizarPedido} />
+          <PedidoTable pedidos={pedidos ?? []} onAtualizar={atualizarPedido} />
         </div>
       </div>
+      <NovoPedido
+        isOpen={novoPedidoOpen}
+        onClose={fecharNovoPedido}
+        onPedidoCriado={aoCriarPedido}
+      />
     </div>
   );
 }

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import ProdutoModal from "../../components/ProdutoModal/ProdutoModal"
+import ProdutoModal from "../../components/ProdutoModal/ProdutoModal";
 import ProdutoTable from "../../components/TabelaProdutos/ProdutoTable";
-import styles from "../PainelProdutos/PainelProdutos.module.css"
+import styles from "../PainelProdutos/PainelProdutos.module.css";
+import NavbarAdmin from "../../components/NavbarAdmin/NavbarAdmin";
+import Sidebar from "../../components/sidebar/sidebar";
 
 export default function ProdutosGestao() {
   const [produtos, setProdutos] = useState([]);
@@ -14,7 +16,9 @@ export default function ProdutosGestao() {
 
   const carregarProdutos = () => {
     fetch("http://localhost:8080/produtos/")
-      .then((res) => res.ok ? res.json() : Promise.reject("Erro ao buscar produtos"))
+      .then((res) =>
+        res.ok ? res.json() : Promise.reject("Erro ao buscar produtos")
+      )
       .then((data) => setProdutos(data))
       .catch((err) => console.error(err));
   };
@@ -41,7 +45,9 @@ export default function ProdutosGestao() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(produtoAtualizado),
     })
-      .then((res) => res.ok ? res.json() : Promise.reject("Erro ao atualizar"))
+      .then((res) =>
+        res.ok ? res.json() : Promise.reject("Erro ao atualizar")
+      )
       .then(() => {
         setMostrarModal(false);
         carregarProdutos();
@@ -50,22 +56,28 @@ export default function ProdutosGestao() {
   };
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.titulo}>Gestão de Produtos</h2>
+    <div>
+      <NavbarAdmin />
+      <div className={styles.container}>
+        <Sidebar />
+        <div className={styles.content}>
+          <h2 className={styles.titulo}>Gestão de Produtos</h2>
 
-      <ProdutoTable
-        produtos={produtos}
-        onEdit={abrirModalEdicao}
-        onDelete={deletarProduto}
-      />
+          <ProdutoTable
+            produtos={produtos}
+            onEdit={abrirModalEdicao}
+            onDelete={deletarProduto}
+          />
 
-      {mostrarModal && (
-        <ProdutoModal
-          produto={produtoSelecionado}
-          onClose={() => setMostrarModal(false)}
-          onSave={salvarEdicao}
-        />
-      )}
+          {mostrarModal && (
+            <ProdutoModal
+              produto={produtoSelecionado}
+              onClose={() => setMostrarModal(false)}
+              onSave={salvarEdicao}
+            />
+          )}
+        </div>
+      </div>
     </div>
   );
 }

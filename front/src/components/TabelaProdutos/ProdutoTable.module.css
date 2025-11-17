@@ -20,34 +20,42 @@
 }
 
 .botaoEditar {
-  padding: 0.25rem 0.75rem;
-  background-color: var(--cor-sucesso); 
-  color: var(--cor-texto-destaque);
+  background-color: #1e90ff;
+  padding: 6px 12px;
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 0.8rem;
+  color: white;
+  transition: 0.2s;
+  margin-bottom: 0.5rem;
 }
 
 .botaoExcluir {
-  padding: 0.25rem 0.75rem;
-  background-color: var(--cor-erro); 
-  color: var(--cor-texto-destaque);
+  background-color:  #b00020;
+  padding: 6px 12px;
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 0.8rem;
+  color: white;
+  transition: 0.2s;
+  margin-bottom: 0.5rem;
 }
 
 .botaoFoto {
-  background: #3498db;
-  color: white;
+  background-color: #8e44ad;
+  padding: 6px 12px;
   border: none;
-  padding: 6px 10px;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 0.8rem;
+  color: white;
+  transition: 0.2s;
 }
 
 .botaoFoto:hover {
-  background: #2980b9;
+  opacity: 0.75;
 }
 
 .modalOverlay {
@@ -90,3 +98,5 @@
 .modalClose:hover {
   background: #c0392b;
 }
+
+

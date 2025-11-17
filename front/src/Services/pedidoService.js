@@ -30,8 +30,8 @@ export const pedidoService = {
   },
 
   cancelar: async (id, motivo) => {
-    await axios.patch(`${API_URL}/${id}/cancelar`, {
-      motivoCancelamento: motivo,
+    await axios.put(`${API_URL}/${id}/cancelar`, {
+      motivo: motivo,
     });
   },
 

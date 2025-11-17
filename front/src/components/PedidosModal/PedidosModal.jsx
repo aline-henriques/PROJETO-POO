@@ -1,8 +1,8 @@
 // src/components/PedidosModal/PedidosModal.jsx
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./PedidosModal.module.css";
 
-export default function PedidoModal({ isOpen, onClose, pedido, onSave }) {
+function PedidoModal({ isOpen, onClose, pedido, onSave }) {
   const [novoStatus, setNovoStatus] = useState("");
   const [motivo, setMotivo] = useState("");
 
@@ -75,3 +75,4 @@ export default function PedidoModal({ isOpen, onClose, pedido, onSave }) {
     </div>
   );
 }
+export default PedidoModal

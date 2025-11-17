@@ -1,0 +1,117 @@
+/* ===== Overlay ===== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* ===== Container do Modal ===== */
+.modal {
+  width: 480px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: #ffffff;
+  padding: 26px;
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  animation: fadeIn 0.25s ease;
+}
+
+/* ===== Botão Fechar ===== */
+.btnFechar {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: #e2e8f0;
+  border: none;
+  font-size: 14px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btnFechar:hover {
+  background: #cbd5e1;
+}
+
+.modal h2 {
+  margin-bottom: 18px;
+  font-size: 1.4rem;
+  color: #0f172a;
+}
+
+.modal label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #475569;
+  margin-top: 12px;
+  display: block;
+}
+
+.select,
+.textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  transition: border 0.2s;
+}
+
+.select:focus,
+.textarea:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+.botaoSalvar,
+.botaoCancelar {
+  width: 100%;
+  padding: 12px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s;
+  font-weight: bold;
+}
+
+.botaoSalvar {
+  background: #2563eb;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.botaoSalvar:hover:not(.disabled) {
+  background: #1e40af;
+}
+
+.botaoCancelar {
+  background: #dc2626;
+  color: white;
+}
+
+.botaoCancelar:hover:not(.disabled) {
+  background: #b91c1c;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
